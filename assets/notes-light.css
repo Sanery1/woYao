@@ -1,0 +1,35 @@
+* { box-sizing: border-box; }
+@page { size: A4; }
+html { color: #344257; font: 10.7pt/1.7 "Microsoft YaHei", "Noto Sans CJK SC", "PingFang SC", sans-serif; }
+body { margin: 0; background: white; }
+main { width: 170mm; margin: 0 auto; }
+@media print { main { width: auto; } }
+h1,h2,h3,h4 { color: #182b43; break-after: avoid; line-height: 1.35; }
+h1 { font-size: 27pt; margin: 0 0 12pt; }
+h2 { font-size: 16pt; margin: 19pt 0 8pt; padding-top: 8pt; border-top: 0.6pt solid #e0e7f0; }
+h3 { font-size: 12.5pt; margin: 13pt 0 6pt; }
+p { margin: 0 0 8pt; orphans: 2; widows: 2; }
+a { color: #426f9e; text-decoration: none; overflow-wrap: anywhere; }
+strong { color: #233c56; }
+ul,ol { margin: 7pt 0 11pt; padding-left: 21pt; }
+li { margin-bottom: 4pt; }
+.doc-meta { list-style: none; padding: 0 0 12pt; margin: 0 0 14pt; border-bottom: 0.7pt solid #e0e7f0; color: #738399; font-size: 8.8pt; break-inside: avoid; }
+.doc-meta li { margin: 0 0 2pt; }
+blockquote { margin: 12pt 0; padding-left: 12pt; border-left: 2pt solid #9cb3cb; color: #53677e; }
+code { font-family: Consolas, "Noto Sans Mono CJK SC", monospace; font-size: 0.9em; background: #f4f7fb; overflow-wrap: anywhere; }
+pre { font-size: 9pt; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f7fb; padding: 10pt; border-left: 2pt solid #a7bdd2; margin: 12pt 0; }
+pre code { font-size: inherit; background: transparent; }
+table { border-collapse: collapse; width: 100%; table-layout: fixed; margin: 12pt 0; font-size: 9.2pt; line-height: 1.5; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+td,th { padding: 6pt; border-bottom: 0.6pt solid #e0e7f0; vertical-align: top; overflow-wrap: anywhere; }
+th { background: #f4f7fb; color: #31536d; text-align: left; }
+img { max-width: 100%; height: auto; max-height: 145mm; object-fit: contain; }
+.figure-wrap { break-inside: avoid; margin: 14pt 0; }
+.figure { text-align: center; margin: 12pt 0; }
+.figure svg { max-width: 100% !important; max-height: 145mm; height: auto; }
+.figure-wrap > p:last-child { font-size: 8.8pt; color: #738399; margin-top: 4pt; }
+.equation { text-align: center; margin: 11pt 0; padding: 7pt 0; break-inside: avoid; }
+.equation svg { max-width: 100%; height: auto; overflow: visible; }
+.inline-equation svg { vertical-align: middle; overflow: visible; }
+hr { border: 0; border-top: 0.6pt solid #e0e7f0; margin: 14pt 0; }
