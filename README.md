@@ -1,110 +1,146 @@
 # woYao
 
-把技术主题转化为有来源、能跟上推理、足够深入的中文学习报告，默认交付可编辑 Markdown 和同源 HTML，PDF 按需生成。
+把一个技术主题，变成一份**有来源、讲得明白、能逐层深入**的中文学习报告。
 
-当前为 **0.19.0-preview.3 本地预览版**：强化具体案例闭环、术语出场顺序、阅读层级与图的信息增量，新增统一 HTML 导出入口，保留 A/B/C 自动适配。下方历史 PDF 案例保留原版本；历史漫画风 HTML 试读见 [故障恢复图解](examples/recovery-html-v2/故障恢复-漫画图解.html)。
+默认交付 **Markdown + 可离线阅读的 HTML**，PDF 按需生成。开头简短进入问题，主体展开机制、关键步骤、抽象原理和工程取舍。
 
-当前版本见 [VERSION](VERSION)。采用 [MIT License](LICENSE)，允许使用、修改与再分发，保留许可声明。第三方依赖和引用材料适用各自许可。
+当前版本：**[0.19.0-preview.3](VERSION)**。本版已提供统一 HTML 导出入口，正在通过真实报告继续改进教学效果。
 
 ## 看看生成效果
 
-输入：
+### HTML 图解试读：Agent 崩溃之后如何继续？
+
+用一次工具调用串起正常执行、崩溃、重复执行和身份核验，图解配合文字解释机制。
+
+[HTML 文件](examples/recovery-html-v2/故障恢复-漫画图解.html) · [Markdown 源稿](examples/recovery-html-v2/故障恢复-漫画图解.md)
+
+下载 HTML 后用浏览器打开即可离线阅读；GitHub 文件页展示的是源码。
+
+![故障恢复图解中的机制示例](examples/recovery-html-v2/figure-2.svg)
+
+这是保留原样的历史漫画风试读，生成基线为 v0.18.1，**不代表当前默认外观**。现在默认根据内容选择下方 A/B/C 图型，正文与图字使用清楚的正常字体。
+
+### 完整研究示例：上亿级数据的 RAG 检索加速
 
 ```text
 使用 woYao 研究：线上 RAG 有上亿级数据，怎样从不同角度提高检索速度？
 ```
 
-本地 v0.18.1 修订的 **13 页完整报告**：从容量与请求耗时进入过滤、HNSW/IVF、量化、磁盘索引、分片、缓存和重排，最后给出架构比较、线上验证方法和 `oOO!` 综合总结。开头简短，主要篇幅留给机制和工程取舍。
+从容量与请求耗时进入过滤、HNSW/IVF、量化、磁盘索引、分片、缓存和重排，再比较候选架构与验证方法。
 
-[完整 Markdown](examples/rag-100m/亿级RAG检索加速-从瓶颈到架构.md) · [PDF](examples/rag-100m/亿级RAG检索加速-从瓶颈到架构.pdf) · [可运行复算](examples/rag-100m/复算示例.py)
+[完整 Markdown](examples/rag-100m/亿级RAG检索加速-从瓶颈到架构.md) · [13 页 PDF](examples/rag-100m/亿级RAG检索加速-从瓶颈到架构.pdf) · [可运行复算](examples/rag-100m/复算示例.py)
 
-![报告首页：版本、问题与容量模型](examples/rag-100m/preview/overview.png)
+![从检索机制走向候选方案](examples/rag-100m/preview/mechanisms.png)
 
-关键术语就近解释，用数字串起机制和判断，避免读完只有名词列表。
-
-![从 HNSW、IVF 机制走到三个候选预算](examples/rag-100m/preview/mechanisms.png)
-
-本例核对 13 份一手资料、运行算术复算并逐页检查 PDF；时延数字是教学推演，未执行亿级数据库压测。用户实际阅读效果和其他宿主的完整研究质量仍需分别验证。
-
-历史示例：[BM25 Markdown](examples/bm25/BM25.md) · [15 页 PDF](examples/bm25/BM25.pdf)。它保留生成时的 v0.16.0 版本；[入门导读](examples/bm25/BM25-入门导读.md) 是 v0.17.0 的局部教学片段。
+本例为 v0.18.1 历史报告，核对一手资料并运行算术复算；时延数字是教学推演，未执行亿级数据库压测。另有 [BM25 完整报告](examples/bm25/BM25.md)、[PDF](examples/bm25/BM25.pdf) 与 [入门导读](examples/bm25/BM25-入门导读.md)，各自保留生成时的版本。
 
 ## 接入你的 Agent
 
-仓库根目录就是标准 Skill，入口为 [SKILL.md](SKILL.md)。宿主需支持本地 Agent Skills 与文件操作；搜索和脚本执行能力由宿主提供。
+仓库根目录就是标准 Skill，入口为 [SKILL.md](SKILL.md)。宿主提供搜索、文件与脚本执行能力。
 
 ```sh
 npx skills add Sanery1/woYao --skill woyao
 ```
 
-指定多个 Agent 的项目级安装示例：
+安装到 Codex、Claude Code、Cursor 的示例：
 
 ```sh
 npx skills add Sanery1/woYao --skill woyao -a codex -a claude-code -a cursor -y
 ```
 
-加 `-g` 为全局安装，不支持符号链接时加 `--copy`。命令依据 [Skills CLI 官方说明](https://github.com/vercel-labs/skills/blob/main/docs/commands.md)，2026-10-24 查阅。离线源码可用 `npx skills add ./woyao --skill woyao`；手动复制时保留完整目录。
+加 `-g` 为全局安装，不支持符号链接时可加 `--copy`。离线源码可用 `npx skills add ./woyao --skill woyao`，也可将完整目录放入宿主的 Skills 目录。命令参考 [Skills CLI 文档](https://github.com/vercel-labs/skills/blob/main/docs/commands.md)。
 
-安装命令取得远端版本；本地候选修改要发布后才会被远端安装获取。安装 Skill 不自动安装 PDF 依赖。不同宿主调用语法可能不同，可直接说“使用 woYao 研究……”。
+安装 Skill 后即可让 Agent 使用；导出依赖在需要生成 HTML/PDF 时准备。不同宿主的调用语法可能不同，可直接说“使用 woYao 研究……”。
 
-## 使用
+## 怎样使用
 
 ```text
-使用 woYao 研究 BM25
-使用 woYao 研究向量数据库的过滤机制，假设我只懂基础后端
+使用 woYao 研究 Pi Durable，假设我只懂基础后端
+使用 woYao 研究向量数据库的过滤机制
 使用 woYao 快速解释 BM25 的长度归一化，只要 Markdown
 使用 woYao tutorial 带我实现一个最小检索器
-使用 woYao reference 整理指定版本 SDK 的参数与错误语义
+使用 woYao 研究亿级 RAG 检索加速，并额外生成 PDF
 ```
 
-仅给主题默认完整系统学习：短导入 → 核心机制 → 相关抽象原理 → 复杂情况与工程判断。必要概念和关键中间步骤不能因简化而省略，后层要推进理解。默认读者有基础编程经验、首次接触主题；可说明自己的基础。
+仅给主题时，默认按“有基础编程经验、第一次接触主题”组织完整学习报告，也可以补充自己的背景、目标和关注点。“快速”缩小范围；tutorial、how-to、reference、explanation 按明确用途调整，无需预先选择模式菜单。
 
-只有明确的特殊用途才缩成 tutorial、how-to、reference 或 explanation；旧模式名仍识别，不必先选菜单。“快速”缩小范围但保留核心事实核验；“只要 Markdown”仅交付正文源；PDF 只在明确要求时生成。
+报告的阅读顺序随主题安排，主要做到：
 
-报告开头展示实际 Skill 版本与研究日期，默认以 `oOO!` 简短收束本质、收益与代价。其他章节、署名和练习题按需要组织；转换脚本不以 `oOO!` 为导出门槛。Markdown 是唯一正文源，修改后重建所需 HTML 或 PDF。
+- **先理解问题，再认识术语。** 概念在需要时解释，逐层进入机制与抽象。
+- **关键案例走到结果。** 展示输入、中间状态、分支理由与最终结果；算法例子给出关键计算量。
+- **图和文字一起解释。** 图呈现状态、顺序、数量或结构差异，文字解释因果与适用边界。
+- **来源和版本可回查。** 开头显示 Skill 版本与研究日期，区分资料结论、教学示意和实际运行结果。
+- **结尾形成理解闭环。** 默认用 `oOO!` 贯通本质、收益与代价，回应起始问题。
 
-## HTML：默认导出命令
+### 图形如何选择
 
-```sh
-node scripts/export_html.cjs topic.md
-# 修订时指定新的文件名，保留已有 HTML
-node scripts/export_html.cjs topic.md --output output/topic-v2.html
-```
+| 图型 | 适合解释 |
+| --- | --- |
+| A：分步骤模块化论文图 | 多阶段方法、系统总览、模块内机制 |
+| B：轻量线稿流程图 | 调用顺序、请求生命周期、故障恢复与反馈 |
+| C：正式论文线稿 | 复杂架构、双路径对照、变量关系与严谨机制 |
 
-使用 Node.js 与下方同一套锁定依赖，不启动或下载浏览器。支持普通 Markdown、表格、本地图片、数学公式、目录与图片放大。生成自包含 HTML，Markdown 和图源保留在原目录。图片限正文目录内的相对路径；Mermaid 先转成本地 SVG，原始 HTML 按文本显示。详细边界见 [HTML 规则](references/html-and-diagrams.md)。
+Agent 按内容自动适配，保持统一字体、角色颜色与连线语义；也可采用更合适的时间轴或数据图。正文保持正常字体，漫画风可明确指定。风格逻辑参考 [Paper Framework Figure Studio Pro](https://github.com/c-narcissus/paper-framework-figure-studio-pro)，具体规则见 [HTML 与图解说明](references/html-and-diagrams.md)。
 
-## PDF：按需导出命令
+## 从 Markdown 导出
 
-日常导出需要 **Node.js 22.12+、npm、Chrome/Chromium 和中文字体**，无需 Python 或虚拟环境。已有依赖与浏览器优先复用；首次缺依赖时在 Skill 根目录运行：
+Markdown 是唯一正文源。修改内容后重新导出 HTML/PDF；HTML 自包含，可单独分享，Markdown 与可编辑图源保留在原目录。
+
+以下命令在 Skill 根目录执行；如果由 Agent 使用，Agent 应定位安装目录后调用脚本。
+
+### 准备依赖
+
+使用 **Node.js 22.12+ 与 npm**。已有依赖可复用，首次缺失时运行：
 
 ```sh
 npm ci --prefix scripts --ignore-scripts --no-audit --no-fund
 ```
 
-默认复用本机 Chrome；也可用环境变量 `WOYAO_BROWSER_PATH` 指定已有浏览器。均没有时，可在 `scripts` 目录用 `npx puppeteer browsers install chrome` 安装一次；Linux 还需浏览器实际要求的系统库。中文可用 Microsoft YaHei 或 Noto Sans CJK SC。
+| 输出 | 额外要求 |
+| --- | --- |
+| 只要 Markdown | 无需导出环境 |
+| HTML（默认） | 上述 Node 依赖；导出不启动或下载浏览器 |
+| PDF（按需） | Chrome/Chromium 与可用中文字体 |
+
+HTML/PDF 共用现有锁定依赖包，目前未拆成独立的轻量安装包。
+
+### HTML：默认输出
+
+```sh
+node scripts/export_html.cjs topic.md
+# 修订时指定新文件名
+node scripts/export_html.cjs topic.md --output output/topic-v2.html
+```
+
+支持标题目录、表格局部滚动、图片放大与离线数学公式。图片以相对路径引用，限正文目录内；Mermaid 围栏需先转成本地 SVG。公式用 `$...$` 或独立 `$$...$$`，原始 HTML 按文本显示。转换阶段不下载远程图片。
+
+默认在正文旁生成同名 HTML，已有文件拒绝覆盖。导出后检查桌面、窄屏和配图；转换成功不代表内容质量已经验证。
+
+### PDF：按需输出
 
 ```sh
 node scripts/export_pdf.cjs topic.md --output-dir output/topic-v1
 ```
 
-同源导出 Markdown、PDF 并复制本地图片。普通 Markdown 也能转换，不强制品牌标题或固定章节；公式用 `$...$` / `$$...$$`，图可用 Mermaid 围栏，图片位于源文档目录内并以相对路径引用。转换阶段不下载外部图片。
+导出 Markdown、PDF 并复制本地图片，支持公式和 Mermaid 围栏。优先复用本机 Chrome，也可通过 `WOYAO_BROWSER_PATH` 指定已有浏览器；均没有时，在 `scripts` 目录运行 `npx puppeteer browsers install chrome` 安装一次。中文字体可用 Microsoft YaHei 或 Noto Sans CJK SC。
 
-已有同名文件会保留，修订时用新输出目录。失败保留源 Markdown；导出后仍需看每页，脚本不能代替内容与视觉检查。可追加 `--work build/topic-v1` 保留 HTML、SVG 与构建清单以排查问题。
-
-无执行能力时可以完成 Markdown，不能保证生成 PDF。只要 Markdown 时无需安装导出依赖。
+已有同名文件会保留，修订时用新输出目录。可追加 `--work build/topic-v1` 保留构建材料。PDF 生成后仍需逐页查看，详见 [PDF 说明](references/visuals-and-pdf.md)。
 
 ## 验证与维护
 
-维护者可用 Python 运行现有回归；这是开发验证环境，不是日常导出的前置条件：
+v0.19.0-preview.3 发布前通过 **21 项 Python 回归、HTML 导出回归与 Skill 校验**；用完整 Pi Durable 原稿重渲染检查了离线、窄屏、目录、图片放大与禁用脚本阅读。新教学规则的阅读效果仍需后续报告试读，尚未在不同 Agent 中分别验证新版完整研究流程。
 
 ```sh
+node tests/test_html.cjs
+# Python 仅用于维护者测试
 python -m pip install -r scripts/requirements.txt
 python -X utf8 -m unittest discover -s tests -p "test_*.py" -v
 ```
 
-本地 v0.18.0 的 21 项回归覆盖普通 Markdown、数学、Mermaid、本地资源、失败与已有文件保护；另生成并检查上述完整 RAG 报告。v0.16.0 曾在隔离目录验证 Codex、Claude Code、Cursor 的 Skills CLI 安装，未在三个宿主分别执行新版完整研究。工程测试和安装识别不证明跨宿主研究质量，详见 [验证要求](references/validation.md)。
+工程检查、内容核验与读者理解分别验证，详细标准见 [验证说明](references/validation.md)。PDF 适配器使用 md-to-pdf 5.2.5 的内部接口；升级依赖时需运行回归。`check_document.py` 与 `publish_document.py` 为历史清单工具，不进入默认导出流程。
 
-渲染基于 md-to-pdf 5.2.5，适配数学、Mermaid、渲染完成等待与资源保护。为确保失败时关闭浏览器与本地服务，适配器使用锁定版本的内部转换入口；升级 md-to-pdf 时需要复核接口并运行回归。依赖体积并未因换引擎明显下降，简化主要是默认使用路径与维护职责。
+[VERSION](VERSION) 记录 Skill 版本；`scripts/package.json` 与锁文件记录渲染依赖包版本。发布排除 node_modules、缓存和临时构建，历史报告保留真实生成版本。
 
-`render_knowledge.cjs` 保留候选构建接口；`check_document.py` 和 `publish_document.py` 是可选的历史清单校验/授权更新工具，不进入默认导出路径。
+## 许可
 
-VERSION 是 Skill 发布版本权威来源；package.json 与锁文件记录渲染依赖包版本，两者保持同步，不要求与 Skill 预览版本相同。发布包含源码、LICENSE、锁文件、tests 与必要 assets，排除 node_modules、虚拟环境与临时构建。历史报告保留真实版本，不能只改版本字段伪装成新构建。
+采用 [MIT License](LICENSE)，允许使用、修改与再分发，保留许可声明。随包字体附带各自授权，引用材料和第三方依赖适用各自许可。
