@@ -1,0 +1,195 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>发出去之后崩溃，Agent 怎么继续？ · woYao</title><style>@font-face{font-family:Diagram;src:url(data:font/woff2;base64,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) format('woff2');font-display:block}svg text{font-family:Diagram,'Microsoft YaHei',sans-serif}
+:root{--ink:#263b37;--dim:#68776e;--green:#28664e;--rule:#dfe5dd;--paper:#fffef9}*{box-sizing:border-box}html{scroll-padding-top:28px}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.9 'Microsoft YaHei','PingFang SC',sans-serif}a{color:var(--green);text-underline-offset:4px;overflow-wrap:anywhere}a:hover{color:#9a4e31}.layout{display:grid;grid-template-columns:200px minmax(0,780px);gap:54px;max-width:1130px;padding:48px 32px 96px;margin:auto}aside{align-self:start;position:sticky;top:32px;font-size:13px;line-height:1.7}.brand{font:700 27px Georgia,serif;letter-spacing:-1px}.eyebrow{font-size:11px;letter-spacing:2px;color:var(--dim);margin-bottom:24px}nav a{display:block;padding:7px 0;text-decoration:none;color:var(--dim)}nav a:hover{color:var(--green)}.toc>summary{display:none}@media(max-width:820px){.toc>summary{display:list-item;cursor:pointer;font-size:13px;margin:12px 0}}main{min-width:0}h1{font-size:36px;line-height:1.45;letter-spacing:-1px;margin:0 0 15px}h1+p{font-size:12px;color:var(--dim);margin-bottom:24px}h1+p+p{font-size:19px;line-height:1.9;padding-bottom:26px;border-bottom:1px solid var(--rule)}h2{font-size:25px;line-height:1.55;margin:48px 0 18px;letter-spacing:-.4px}h3{font-size:20px;margin-top:30px}p{margin:16px 0}strong{font-weight:700;color:#1d5140}figure{position:relative;margin:24px 0 20px;border:1px solid var(--rule);background:#fffdf5;border-radius:5px;padding:14px 10px 12px}.figure-scroll{overflow-x:auto}svg{display:block;width:100%;min-width:620px;height:auto}figcaption{font-size:12px;line-height:1.6;color:var(--dim);padding:8px 90px 0 6px}.enlarge{position:absolute;bottom:10px;right:12px;background:none;border:0;color:var(--green);font:12px 'Microsoft YaHei',sans-serif;cursor:pointer;padding:4px}pre{background:#eef1eb;padding:20px;font:14px/1.85 Consolas,'Microsoft YaHei',monospace;overflow:auto;border-radius:4px}code{font-family:Consolas,monospace;font-size:.9em}table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.8}th{text-align:left;background:#edf2eb}th,td{padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top}th:first-child,td:first-child{min-width:115px}.table-scroll{overflow:auto}details{font-size:12px;color:var(--dim);margin-top:28px}details pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:11px}footer{margin-top:40px;border-top:1px solid var(--rule);padding-top:18px;font-size:12px;color:var(--dim)}dialog{width:min(1100px,96vw);max-height:94vh;border:1px solid #d0d8ce;border-radius:6px;background:var(--paper);padding:18px}dialog::backdrop{background:#1b2b27aa}.zoom{overflow:auto}.zoom svg{min-width:740px}dialog>button{display:block;margin-left:auto;padding:7px 13px;font-size:14px;background:white;border:1px solid #bccbbc;border-radius:4px;cursor:pointer}.skip{position:absolute;top:-60px}.skip:focus{top:0;background:white} @media(max-width:820px){.layout{display:block;padding:28px 20px 60px}aside{position:static;margin-bottom:26px}nav{display:flex;flex-wrap:wrap;gap:5px 15px}nav a{font-size:12px;padding:2px 0}.eyebrow{margin-bottom:10px}h1{font-size:29px}h2{font-size:22px;margin-top:38px}body{font-size:16px}h1+p+p{font-size:17px}figure{margin-left:-5px;margin-right:-5px}figcaption{font-size:11px;padding-right:76px}th,td{padding:9px}.zoom svg{width:900px}}@media print{aside,.enlarge,dialog,.skip{display:none}.layout{display:block;padding:0}body{font-size:11pt}h1{font-size:25pt}h2{break-after:avoid}figure,table,pre{break-inside:avoid}svg{min-width:0}a{color:inherit}details{display:none}}</style></head><body><a class="skip" href="#main">跳到正文</a><div class="layout"><aside><div class="brand">woYao<span style="color:#ad633d">.</span></div><div class="eyebrow">机制图解 / 试读 02</div><details class="toc" open><summary>展开阅读目录</summary><nav aria-label="阅读目录"><a href="#s2">1. 先看一条消息正常走完</a><a href="#s3">2. 崩溃发生在两步之间，会留下什么？</a><a href="#s4">3. 为什么“存数据库，失败就重试”仍然不够？</a><a href="#s5">4. 给动作稳定身份，重试时核验同一结果</a><a href="#s7">5. 把两部分接起来：本地不忘事，远端少重复</a><a href="#s8">6. 什么时候仍然需要停下来核验？</a><a href="#s9">oOO!</a><a href="#s10">来源与阅读边界</a></nav></details></aside><main id="main"><h1 id="s1">发出去之后崩溃，Agent 怎么继续？</h1><p>Skill 基线 v0.18.1 · HTML 漫画图解试读 02 · 2026-11-02</p>
+<p>修复代码完成后，Agent 要在 PR 下发一条结果评论。最难恢复的时刻，是远端已经收到、本地却还没记下成功。重启后只看本地记录，无法判断应不应该再发。</p>
+<h2 id="s2">1. 先看一条消息正常走完</h2><p>教学设定：登录超时已经修好，要向 PR #42 回复“修复完成，测试通过”。我们给这一次回复取一个身份 M42；它用来识别这次动作，不是 PR 编号，也不是每次重试重新生成的编号。</p>
+<p><figure><div class="figure-scroll" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 310" role="img" aria-label="正常发送：远端收到评论后，本地再记录确认"><title>正常发送：远端收到评论后，本地再记录确认</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10" fill="#36584a"/></marker></defs><path d="M29,25 L228,24 L230,105 L26,107 Z" fill="#eef4f0" stroke="#36584a" stroke-width="2" stroke-linejoin="round"/><text x="128.0" y="58" font-size="22" text-anchor="middle" fill="#263b37">本地待办</text><text x="128.0" y="87" font-size="22" text-anchor="middle" fill="#263b37">M42：待发送</text><path d="M513,25 L712,24 L714,105 L510,107 Z" fill="#eef0f6" stroke="#36584a" stroke-width="2" stroke-linejoin="round"/><text x="612.0" y="58" font-size="22" text-anchor="middle" fill="#263b37">远端 PR</text><text x="612.0" y="87" font-size="22" text-anchor="middle" fill="#263b37">还没有评论</text><path d="M244,79 L494,79" stroke="#36584a" stroke-width="2.3" fill="none" marker-end="url(#arrow)" /><text x="369.0" y="67.0" font-size="21" text-anchor="middle" fill="#36584a">① 发送 M42</text><path d="M513,158 L712,157 L714,238 L510,240 Z" fill="#eef0f6" stroke="#36584a" stroke-width="2" stroke-linejoin="round"/><text x="612.0" y="191" font-size="22" text-anchor="middle" fill="#263b37">远端 PR</text><text x="612.0" y="220" font-size="22" text-anchor="middle" fill="#263b37">已有 1 条评论</text><path d="M611,112 L611,147" stroke="#36584a" stroke-width="2.3" fill="none" marker-end="url(#arrow)" /><path d="M29,158 L228,157 L230,238 L26,240 Z" fill="#eef4f0" stroke="#36584a" stroke-width="2" stroke-linejoin="round"/><text x="128.0" y="191" font-size="22" text-anchor="middle" fill="#263b37">本地待办</text><text x="128.0" y="220" font-size="22" text-anchor="middle" fill="#263b37">M42：已确认</text><path d="M494,198 L244,198" stroke="#36584a" stroke-width="2.3" fill="none" marker-end="url(#arrow)" /><text x="369.0" y="186.0" font-size="21" text-anchor="middle" fill="#36584a">② 成功响应后落盘</text><text x="370" y="284" font-size="23" text-anchor="middle" fill="#263b37">正常路径：远端产生结果，本地留下确认。</text></svg></div><figcaption>图 1 · 正常发送：远端收到评论后，本地再记录确认</figcaption><button class="enlarge" aria-label="放大图 1">放大查看 ↗</button></figure></p>
+<p>先看上方箭头：程序把消息发给远端。再看下方箭头：得到成功响应后，程序把本地状态改为已确认。两步都完成时，两边记录一致。</p>
+<p>这里必须区分两个事实：<strong>远端产生了评论</strong>，以及<strong>本地知道评论已经产生</strong>。它们通常紧挨着发生，却不是同一件事。</p>
+<h2 id="s3">2. 崩溃发生在两步之间，会留下什么？</h2><p><figure><div class="figure-scroll" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 350" role="img" aria-label="发送后崩溃：远端已经收到，本地尚未确认"><title>发送后崩溃：远端已经收到，本地尚未确认</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10" fill="#36584a"/></marker></defs><path d="M29,25 L228,24 L230,105 L26,107 Z" fill="#eef4f0" stroke="#36584a" stroke-width="2" stroke-linejoin="round"/><text x="128.0" y="58" font-size="22" text-anchor="middle" fill="#263b37">本地待办</text><text x="128.0" y="87" font-size="22" text-anchor="middle" fill="#263b37">M42：待发送</text><path d="M513,25 L712,24 L714,105 L510,107 Z" fill="#eef0f6" stroke="#36584a" stroke-width="2" stroke-linejoin="round"/><text x="612.0" y="58" font-size="22" text-anchor="middle" fill="#263b37">远端 PR</text><text x="612.0" y="87" font-size="22" text-anchor="middle" fill="#263b37">已有 1 条评论</text><path d="M244,79 L494,79" stroke="#36584a" stroke-width="2.3" fill="none" marker-end="url(#arrow)" /><text x="369.0" y="67.0" font-size="21" text-anchor="middle" fill="#36584a">① 已经发送成功</text><path d="M380 116 l-24 23 25 19 -24 25" stroke="#ad4e36" stroke-width="4" fill="none"/><text x="402" y="155" font-size="24" text-anchor="start" fill="#ad4e36">这里崩溃！</text><path d="M29,191 L228,190 L230,271 L26,273 Z" fill="#fff0e5" stroke="#ad4e36" stroke-width="2" stroke-linejoin="round"/><text x="128.0" y="224" font-size="22" text-anchor="middle" fill="#263b37">重启读本地</text><text x="128.0" y="253" font-size="22" text-anchor="middle" fill="#263b37">仍是：待发送</text><path d="M513,191 L712,190 L714,271 L510,273 Z" fill="#eef0f6" stroke="#36584a" stroke-width="2" stroke-linejoin="round"/><text x="612.0" y="224" font-size="22" text-anchor="middle" fill="#263b37">查看远端</text><text x="612.0" y="253" font-size="22" text-anchor="middle" fill="#263b37">其实：已经发过</text><text x="370" y="322" font-size="23" text-anchor="middle" fill="#263b37">同一条消息，两边记录暂时对不上。</text></svg></div><figcaption>图 2 · 发送后崩溃：远端已经收到，本地尚未确认</figcaption><button class="enlarge" aria-label="放大图 2">放大查看 ↗</button></figure></p>
+<p>红色断点位于发送成功之后、本地确认之前。进程可能退出，也可能一直收不到响应。重启时，本地数据库仍写着待发送，但远端已经有了评论。</p>
+<p>因此，<strong>待发送只说明本地没有完成确认，不能证明远端没有收到。</strong> 网络超时也只能说明调用方没有及时得到确定结果。</p>
+<p>如果在发送前就写已确认呢？进程若紧接着崩溃，远端没有收到，本地却以为完成，这条回复就会丢。把确认提前，只是把重复风险换成丢失风险。</p>
+<h2 id="s4">3. 为什么“存数据库，失败就重试”仍然不够？</h2><p><figure><div class="figure-scroll" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 325" role="img" aria-label="直接重试：待办没有丢，但可能重复产生评论"><title>直接重试：待办没有丢，但可能重复产生评论</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10" fill="#36584a"/></marker></defs><path d="M29,29 L228,28 L230,109 L26,111 Z" fill="#fff0e5" stroke="#36584a" stroke-width="2" stroke-linejoin="round"/><text x="128.0" y="62" font-size="22" text-anchor="middle" fill="#263b37">读取待办 M42</text><text x="128.0" y="91" font-size="22" text-anchor="middle" fill="#263b37">决定再次发送</text><path d="M513,29 L712,28 L714,109 L510,111 Z" fill="#eef0f6" stroke="#36584a" stroke-width="2" stroke-linejoin="round"/><text x="612.0" y="62" font-size="22" text-anchor="middle" fill="#263b37">远端 PR</text><text x="612.0" y="91" font-size="22" text-anchor="middle" fill="#263b37">原来已有 1 条</text><path d="M244,82 L494,82" stroke="#36584a" stroke-width="2.3" fill="none" marker-end="url(#arrow)" /><text x="369.0" y="70.0" font-size="21" text-anchor="middle" fill="#36584a">重试同样的文字</text><path d="M513,165 L712,164 L714,245 L510,247 Z" fill="#fff0e5" stroke="#ad4e36" stroke-width="2" stroke-linejoin="round"/><text x="612.0" y="198" font-size="22" text-anchor="middle" fill="#263b37">远端 PR</text><text x="612.0" y="227" font-size="22" text-anchor="middle" fill="#263b37">现在变成 2 条！</text><path d="M611,118 L611,154" stroke="#36584a" stroke-width="2.3" fill="none" marker-end="url(#arrow)" /><path d="M29,165 L228,164 L230,245 L26,247 Z" fill="#eef4f0" stroke="#36584a" stroke-width="2" stroke-linejoin="round"/><text x="128.0" y="198" font-size="22" text-anchor="middle" fill="#263b37">本地确认成功</text><text x="128.0" y="227" font-size="22" text-anchor="middle" fill="#263b37">重复却已发生</text><path d="M494,205 L244,205" stroke="#36584a" stroke-width="2.3" fill="none" marker-end="url(#arrow)" /><text x="369.0" y="193.0" font-size="21" text-anchor="middle" fill="#36584a">这次收到成功响应</text><text x="370" y="296" font-size="22" text-anchor="middle" fill="#263b37">文字相同，不代表远端知道它是同一次动作。</text></svg></div><figcaption>图 3 · 直接重试：待办没有丢，但可能重复产生评论</figcaption><button class="enlarge" aria-label="放大图 3">放大查看 ↗</button></figure></p>
+<p>本地待办确实让程序记住还有一件事没确认。可是远端如果把第二次调用当成一次全新的创建请求，就会出现两条相同评论。<strong>保存待办解决了忘记继续的问题，不能单独解决重复执行的问题。</strong></p>
+<p>也不能简单按评论正文去重。同一句“测试通过”可能属于两轮不同的修复；两次业务上不同的回复，应该拥有不同身份。反过来，同一回复的网络重试应沿用同一身份。</p>
+<h2 id="s5">4. 给动作稳定身份，重试时核验同一结果</h2><p><figure><div class="figure-scroll" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 325" role="img" aria-label="按稳定消息身份核验：识别已有结果，再补本地确认"><title>按稳定消息身份核验：识别已有结果，再补本地确认</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10" fill="#36584a"/></marker></defs><path d="M29,25 L228,24 L230,105 L26,107 Z" fill="#eef4f0" stroke="#36584a" stroke-width="2" stroke-linejoin="round"/><text x="128.0" y="58" font-size="22" text-anchor="middle" fill="#263b37">重启后重试</text><text x="128.0" y="87" font-size="22" text-anchor="middle" fill="#263b37">仍使用身份 M42</text><path d="M513,25 L712,24 L714,105 L510,107 Z" fill="#eef0f6" stroke="#36584a" stroke-width="2" stroke-linejoin="round"/><text x="612.0" y="58" font-size="22" text-anchor="middle" fill="#263b37">远端记录</text><text x="612.0" y="87" font-size="22" text-anchor="middle" fill="#263b37">已有身份 M42</text><path d="M244,79 L494,79" stroke="#36584a" stroke-width="2.3" fill="none" marker-end="url(#arrow)" /><text x="369.0" y="67.0" font-size="21" text-anchor="middle" fill="#36584a">① 核验同一身份</text><path d="M513,161 L712,160 L714,241 L510,243 Z" fill="#e2eee5" stroke="#36584a" stroke-width="2" stroke-linejoin="round"/><text x="612.0" y="194" font-size="22" text-anchor="middle" fill="#263b37">识别为同一消息</text><text x="612.0" y="223" font-size="22" text-anchor="middle" fill="#263b37">复用已有结果</text><path d="M611,114 L611,150" stroke="#36584a" stroke-width="2.3" fill="none" marker-end="url(#arrow)" /><path d="M29,161 L228,160 L230,241 L26,243 Z" fill="#eef4f0" stroke="#36584a" stroke-width="2" stroke-linejoin="round"/><text x="128.0" y="194" font-size="22" text-anchor="middle" fill="#263b37">记录本地确认</text><text x="128.0" y="223" font-size="22" text-anchor="middle" fill="#263b37">M42：已确认</text><path d="M494,202 L244,202" stroke="#36584a" stroke-width="2.3" fill="none" marker-end="url(#arrow)" /><text x="369.0" y="190.0" font-size="21" text-anchor="middle" fill="#36584a">② 核验后补确认</text><text x="370" y="294" font-size="23" text-anchor="middle" fill="#263b37">请求可以重试，外部结果应避免重复。</text></svg></div><figcaption>图 4 · 按稳定消息身份核验：识别已有结果，再补本地确认</figcaption><button class="enlarge" aria-label="放大图 4">放大查看 ↗</button></figure></p>
+<p>这次恢复仍使用 M42。若远端能识别这个身份，重复请求可以返回已有结果；如果平台没有原生去重接口，适配器需要借助远端标记查询、核验已有结果，再决定是否发送。</p>
+<p>这种“重复请求同一动作，避免产生多个外部结果”的性质叫<strong>幂等</strong>。关键不是不许再调用，而是让同一动作的重复调用能够收敛到同一结果。图中展示的是已存在的分支；若确认没有发送过，才创建带 M42 身份的评论，然后记录确认。</p>
+<h3 id="s6">对应到 Super-agent 原型</h3><p>固定版本的扩展文档要求发送使用稳定的 <code>message.id</code>：GitHub 通过隐藏评论标记识别，飞书使用幂等键。图里的 M42 是教学代号，不是源码的真实 ID 格式。<a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/6337fc823ce20251c8de8085948165c81aaa701e/docs/008-cookbook.md#5-replies-the-channel">发送契约与幂等要求</a></p>
+<p>两种方式的保证强度需要分别看：远端原生支持幂等键，可以在其承诺的范围和期限内去重；“先查标记，再创建”本身不是跨请求的原子操作，如果两个发送者同时查到不存在，仍可能同时创建。因此需要发送协调，并核查具体实现，不能只凭这张图宣称严格只执行一次。</p>
+<h2 id="s7">5. 把两部分接起来：本地不忘事，远端少重复</h2><p>本地也存在一个更早的断点：如果先保存工作结果，尚未保存回复待办就崩溃，重启后可能知道修复完成，却不知道还有评论要发。解决方式是把关联记录放进同一个<strong>数据库事务</strong>，使它们一起提交或一起回滚。</p>
+<pre><code class="language-text">本地事务：
+  保存工作结果
+  保存待发消息 M42 和发送任务
+提交事务
+
+发送器处理待办：
+  用 M42 调用具备去重或核验能力的发送适配器
+  已确认远端结果 → 写入本地发送确认
+  暂时失败或结果不明 → 保留待办，稍后核验或重试
+</code></pre>
+<p>这是教学伪代码，不是可直接运行的原型 API。<strong>本地事务不能包住远端平台</strong>：本地提交和远端评论创建之间，仍有网络与进程故障。</p>
+<p>原型里的几个名字，现在可以放回这条过程理解：<a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/6337fc823ce20251c8de8085948165c81aaa701e/docs/007-architecture.md">架构文档</a></p>
+<table>
+<thead>
+<tr>
+<th>部件</th>
+<th>负责什么</th>
+<th>没有单独保证什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Engine</td>
+<td>在事务中改变工作状态，并排入外部工作</td>
+<td>不把远端操作变成本地事务的一部分</td>
+</tr>
+<tr>
+<td>Effects</td>
+<td>持久保存待执行动作，安排执行和失败退避</td>
+<td>不保证所有外部动作天然幂等</td>
+</tr>
+<tr>
+<td>Outbox</td>
+<td>管理出站消息收据及对应的回复任务</td>
+<td>收据尚未确认，不等于远端没有收到</td>
+</tr>
+<tr>
+<td>发送适配器</td>
+<td>对接平台，利用身份、标记或平台能力处理重试</td>
+<td>能力依赖平台和具体实现</td>
+</tr>
+</tbody></table>
+<p>这里的副作用（effect）就是会改变系统外部状态的动作，例如发评论或启动执行器；不是“出了不良反应”。Outbox 可以理解为保存在数据库里的发件箱。名字不重要，重要的是各自负责哪一个断点。</p>
+<h2 id="s8">6. 什么时候仍然需要停下来核验？</h2><p>假设 Agent 要执行一条没有去重能力的 Shell 命令，命令已经改变外部系统，但成功回执丢了。把同一条命令写进持久队列，并不会自动让它安全重跑。</p>
+<table>
+<thead>
+<tr>
+<th>恢复时掌握的证据</th>
+<th>下一步</th>
+<th>为什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>能确认同一消息已经存在</td>
+<td>补本地确认</td>
+<td>外部结果已满足，避免再次创建</td>
+</tr>
+<tr>
+<td>远端原生支持有效的幂等键</td>
+<td>按其契约沿用同一键重试</td>
+<td>去重范围、有效期和参数规则由平台定义</td>
+</tr>
+<tr>
+<td>查询不到标记，但查询可能不完整</td>
+<td>继续核验，保留不确定状态</td>
+<td>查不到不能直接当成没发生</td>
+</tr>
+<tr>
+<td>动作不可安全重做，结果又不明</td>
+<td>提供证据，请人决定</td>
+<td>盲目重试可能扩大影响</td>
+</tr>
+</tbody></table>
+<p>可靠恢复因此有成本：要持久存储身份与收据，处理积压和退避，维护适配器，并保留可排查证据。人工介入仍然是处理无法自动消除的不确定性的必要路径。</p>
+<h2 id="s9">oOO!</h2><p>恢复的核心，是弄清楚哪些事实已被可靠记录、哪些外部结果已发生、哪些仍不确定。持久待办让工作在重启后继续，稳定身份和发送端去重帮助重试收敛；两者配合，才能减少遗漏与重复。</p>
+<p>代价是状态、收据、核验和发送协调变复杂。这套机制适合需要持续推进、对外交付的 Agent，但不能推广成任意工具调用都能严格只执行一次。</p>
+<h2 id="s10">来源与阅读边界</h2><p>本节是原报告故障恢复部分的教学重写。案例、M42、图和伪代码为教学构造；此次重新查阅了以下固定提交文档，未运行原型或做故障注入，也未对所有适配器做源码审计。</p>
+<ul>
+<li><a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/6337fc823ce20251c8de8085948165c81aaa701e/docs/007-architecture.md">007 Architecture：Engine、Effects、Outbox</a></li>
+<li><a href="https://github.com/deepseek-ai/dsh-superagent-prototype/blob/6337fc823ce20251c8de8085948165c81aaa701e/docs/008-cookbook.md#5-replies-the-channel">008 Cookbook：发送契约与 Idempotent sends</a></li>
+<li><a href="https://github.com/lxgw/LxgwMarkerGothic">霞鹜漫黑：图中文字字体，OFL 1.1</a>。本页嵌入报告实际图字的字体子集，授权信息见随附 FONT-LICENSE.txt。</li>
+</ul>
+<details><summary>图中文字字体授权 · SIL OFL 1.1</summary><pre>Copyright 2021-2026 The LXGW Marker Gothic Project Authors (https://github.com/lxgw/LxgwMarkerGothic)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+https://openfontlicense.org
+
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded,
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION &amp; CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+</pre></details><footer>四幅图按同一案例展开。全文与图中文字可离线阅读，外部来源链接需联网。窄屏可横向查看图，或点击放大。</footer></main></div><dialog aria-label="放大图解"><button autofocus>关闭 ×</button><div class="zoom"></div></dialog><script>if(matchMedia("(max-width:820px)").matches)document.querySelector(".toc").open=false;document.querySelectorAll('.enlarge').forEach(b=>b.addEventListener('click',()=>{document.querySelector('.zoom').innerHTML=b.closest('figure').querySelector('svg').outerHTML;document.querySelector('dialog').showModal()}));document.querySelector('dialog>button').onclick=()=>document.querySelector('dialog').close();</script></body></html>

@@ -1,6 +1,6 @@
 # 断言与证据
 
-内部台账放工作目录，不必作最终第三份文档。重要断言记录：`claim / source / locator / source_type / date / subject_version / evidence_kind / observation_or_inference / conditions / counter_evidence / conflict / reproducibility / doc_section`。
+内部笔记留在工作目录，不作为强制第三份交付。默认记录重要结论、来源定位和必要条件/未知；涉及数字比较、争议、复现或闭源推断时，再补版本、方法、反证与冲突。记录细度服务核验，不机械填空表。
 
 | 性质 | 可支持什么 | 表述 |
 | --- | --- | --- |

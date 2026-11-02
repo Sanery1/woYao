@@ -128,9 +128,8 @@ class PipelineTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "installed Skill"):
             validate(self.source, relaxed=True)
 
-    def test_default_contract_is_enforced(self):
-        with self.assertRaises(ValueError):
-            validate(self.source)
+    def test_branding_and_fixed_sections_are_optional(self):
+        self.assertEqual(validate(self.source)["status"], "PASS")
 
 
 if __name__ == "__main__":

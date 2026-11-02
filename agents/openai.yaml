@@ -1,4 +1,4 @@
 interface:
   display_name: "woYao"
-  short_description: "主动研究技术主题，生成有证据、可编辑的深度学习笔记与同源浅色 PDF"
-  default_prompt: "使用 $woyao 深入研究这个技术主题，生成 Markdown 与同源浅色 PDF。"
+  short_description: "主动研究技术主题，生成有证据、可编辑的深度学习笔记与同源 HTML，PDF 按需"
+  default_prompt: "使用 $woyao 深入研究这个技术主题，默认生成 Markdown 与同源 HTML，根据内容自动选择模块化论文图、轻量流程图或正式论文线稿，配文字解释；PDF 按需生成。"

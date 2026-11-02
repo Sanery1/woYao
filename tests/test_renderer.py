@@ -1,5 +1,6 @@
 """Run the real optional renderer; needs its Node dependencies and a browser."""
 import hashlib
+from html.parser import HTMLParser
 import json
 from pathlib import Path
 import subprocess
@@ -64,7 +65,23 @@ stateDiagram-v2
         self.assertTrue((self.build / "document.pdf").read_bytes().startswith(b"%PDF-"))
         html = (self.build / "rendered.html").read_text(encoding="utf-8")
         self.assertIn('&lt;script&gt;throw new Error(', html)
-        self.assertIn('value = "$not_math$"', html)
+        class CodeText(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.in_pre = False
+                self.parts = []
+            def handle_starttag(self, tag, attrs):
+                if tag == "pre":
+                    self.in_pre = True
+            def handle_endtag(self, tag):
+                if tag == "pre":
+                    self.in_pre = False
+            def handle_data(self, data):
+                if self.in_pre:
+                    self.parts.append(data)
+        code = CodeText()
+        code.feed(html)
+        self.assertIn('value = "$not_math$"', ''.join(code.parts))
 
     def test_nested_math_svg_is_complete(self):
         result = self.run_renderer(r"""# Math regression
@@ -87,14 +104,11 @@ $$
         self.assertIn('data-c="29"', equations[1].read_text(encoding="utf-8"))
         self.assertIn('data-c="1D467"', equations[2].read_text(encoding="utf-8"))
 
-    def test_wrong_or_missing_version_stops_build(self):
-        for metadata in ["", "- **Skill 版本：** woYao v0.0.0\n\n"]:
-            with self.subTest(metadata=metadata):
-                self.source.write_text(metadata + "# Version test\n", encoding="utf-8")
-                result = subprocess.run(["node", str(RENDERER), str(self.source), "--work", str(self.build), "--relaxed"], capture_output=True, text=True, encoding="utf-8", timeout=90)
-                self.assertNotEqual(result.returncode, 0)
-                self.assertIn("Report must declare", result.stderr)
-                self.assertFalse((self.build / "document.pdf").exists())
+    def test_plain_markdown_needs_no_branding_or_sections(self):
+        self.source.write_text("# Plain report\n\n## Mechanism\n\nOrdinary content.\n", encoding="utf-8")
+        result = subprocess.run(["node", str(RENDERER), str(self.source), "--work", str(self.build)], capture_output=True, text=True, encoding="utf-8", timeout=90)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertTrue((self.build / "document.pdf").exists())
 
     def test_invalid_mermaid_cannot_produce_success_manifest(self):
         result = self.run_renderer("# Bad diagram\n\n```mermaid\nunknownDiagram\n X Y Z\n```\n")

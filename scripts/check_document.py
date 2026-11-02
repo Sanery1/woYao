@@ -78,31 +78,6 @@ def validate(source, manifest=None, pdf=None, relaxed=False):
     if not relaxed:
         if sum(h["level"] == 1 for h in headings) != 1:
             raise ValueError("Expected exactly one H1 title")
-        h2 = [h["text"] for h in headings if h["level"] == 2]
-        if h2[-2:] != ["oOO!", "参考资料与证据级别"]:
-            raise ValueError("Last two H2 chapters must be oOO! then 参考资料与证据级别")
-        metadata = re.search(r"<!-- woyao:metadata -->(.*?)<!-- /woyao:metadata -->", text, re.S)
-        if not metadata:
-            raise ValueError("Document metadata list is missing")
-        for field in ["研究日期", "读者", "证据范围", "文档版本", "生成者"]:
-            if not re.search(rf"^- \*\*{field}[：:]\*\*\s+\S", metadata[1], re.M):
-                raise ValueError(f"Missing metadata field: {field}")
-        if not re.search(r"^- \*\*生成者[：:]\*\* woYao skill by saneryi\s*$", metadata[1], re.M):
-            raise ValueError("Generator credit differs from document contract")
-        date = re.search(r"研究日期[：:]\*\*\s+(\d{4}-\d{2}-\d{2})", metadata[1])
-        if not date:
-            raise ValueError("Research date must be YYYY-MM-DD")
-        from datetime import date as calendar_date
-        calendar_date.fromisoformat(date[1])
-        questions = next((i for i, h in enumerate(headings) if h["level"] == 2 and "读完以后，你应该能回答这些问题" in h["text"]), None)
-        if questions is None:
-            raise ValueError("Missing macro learning questions section")
-        q_heading = headings[questions]["text"]
-        q_start = prose.index(q_heading) + len(q_heading)
-        q_end = prose.find("\n## ", q_start)
-        question_count = len(re.findall(r"^\s*\d+[.)、]\s+", prose[q_start:q_end if q_end >= 0 else None], re.M))
-        if not 4 <= question_count <= 6:
-            warnings.append(f"Learning question count is {question_count}; review appropriateness, not a mandatory quota")
     resources = image_paths(source, text)
     if manifest:
         manifest = Path(manifest).resolve(strict=True)

@@ -1,0 +1,28 @@
+{
+  "raw_capacity_decimal_GB": {
+    "float32": 307.2,
+    "float16": 153.6,
+    "int8": 76.8,
+    "pq_96_bytes": 9.6,
+    "graph_edges_64x4_bytes": 25.6,
+    "three_copies_float32": 921.6
+  },
+  "fanout_within_deadline_iid": {
+    "1": 0.99,
+    "8": 0.9227446944279201,
+    "32": 0.7249803359578534,
+    "64": 0.525596487525562
+  },
+  "physical_requests_at_200qps": {
+    "64_shards": 12800,
+    "8_shards": 1600
+  },
+  "ivf_balanced_list_scans": 48828.125,
+  "postfilter_expected_candidates_for_20_at_0_1_percent": 20000.0,
+  "raw_vector_network_MB_per_query_for_1000": 3.072,
+  "raw_vector_network_MB_per_second_at_200qps": 614.4,
+  "mean_concurrency_at_200qps_100ms": 20.0,
+  "original_single_trace_ms": 295,
+  "ann_only_improved_trace_ms": 220,
+  "multi_stage_improved_trace_ms": 142
+}
