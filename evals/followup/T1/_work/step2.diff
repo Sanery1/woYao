@@ -1,0 +1,40 @@
+--- step2-before
++++ step2-after
+@@ -126,6 +126,21 @@
+ 
+ 验证改动时，保留一批真实业务查询，为它们标记相关文档，再比较相同任务下的结果。检查候选里漏了谁，也检查首屏是否把最有用文档放前面；不要把“分数变大”当成效果变好。查询集至少应覆盖短词、长问题、同义表达与容易误命中的场景。本文没有运行搜索引擎、没有业务标注实验，参数仅服务于理解公式。Lucene 10.3.1文档列出k₁=1.2、b=0.75的默认值，但本例是显式公式的教学复算，未验证其全部评分细节；生产环境应以实际版本的解释输出为准。〔官方〕[Lucene API](https://lucene.apache.org/core/10_3_1/core/org/apache/lucene/search/similarities/BM25Similarity.html)
+ 
++## 5 继续深入：标题与正文怎样交给BM25F
++
++前面一直把文章看作一个整体；现在保持“手机维修”这个查询，只把同一文章拆成标题与正文两个**字段**，即可以分别统计的内容部分。标题写“维修”常比正文偶然出现更像主题信号，可直接把两个字段各自的BM25分数相加吗？
++
++**BM25F**把多字段的词项证据先合并，再进行饱和。作者的TREC-2004报告§4.1指出：各字段先对词频做自己的长度调整，按字段重要性加权相加，形成一个“合成词频”，然后送入同一个BM25饱和函数。标题与正文各用本字段的平均长度，不能拿整篇或正文的平均长度去调整标题。〔论文〕[作者报告](https://www.microsoft.com/en-us/research/wp-content/uploads/2004/01/Microsoft-Cambridge-at-TREC-2004-Web-and-HARD-track.pdf)
++
++把第3节的f/L延伸为每个字段的一项即可：对词t，字段j的次数为f_j，长度调整为L_j=1-b_j+b_j|d_j|/avglen_j，权重为w_j；先求x=Σ_j w_j f_j/L_j。再用x替代单字段调整后的次数进入饱和曲线。共同IDF在字段合并后作用于这个词；这里讨论的作者版本并不为每个字段各算一套IDF。
++
++<!-- calc: bm25f_demo -->
++设标题和正文恰好都等于各自的平均长度，标题出现“维修”1次、正文2次，标题权重取2、正文取1，则合成词频为4。沿用教学k₁=1.2，并暂把共同IDF放在表外，先合并再饱和的因子约1.692308；把两个已加权词频分别送入饱和函数再相加，则得到2.75。〔示意〕这两个结果不同，原因就是饱和函数不是线性的：同一词分散出现在两个字段，仍是一篇文章的匹配证据，合并后只统一经历一次收益递减。
++
++字段权重和长度调整也承担不同任务。标题权重大，表达“命中标题更值得计入”；标题自己的b_j决定“长标题多出的命中机会要补偿多少”。两者都不能把没有出现的词补出来。后续作者论文也明确每字段有自己的b和词频权重w，并讨论参数增加后的调参问题。〔论文〕[多参数优化论文§3.2](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/optimisation_multiple_parameters.pdf)
++
++在售后知识库里，先检查标题是否可靠、字段缺失怎样处理，再用固定查询及相关性标注比较首屏结果。标题权重更高是可检验的业务假设；分数增大无法证明用户更容易找到答案。本文核对的是历史作者模型与教学算例，未证明某个当前搜索产品的字段查询等同于BM25F，也未运行真实效果实验。〔推断〕
++
+ ## 回到开头
+ 
+ 售后知识库的长汇总没有理由仅凭多写几次“维修”就占据首位：稀有程度决定词项有多少区分力，饱和限制重复收益，长度调整补偿长文天然更多的命中机会。三者共同给出可解释的匹配信号。
+@@ -154,7 +169,7 @@
+ 
+ ## 证据边界
+ 
+-本代理外网访问失败后，由协调代理实际联网打开官方页面并共享原文片段，逐段核对再引用。已核对四份官方来源，包括Elastic的词频饱和与参数讲解；历史算法讲解不等同于当前引擎全部数值细节。教学数据及公式脚本实际运行，输出保存在_work/calc；这些算术结果不代表产品效果。独立读者测验：待独立读者测验。没有展开概率模型完整推导、BM25变体和具体引擎配置。
++本代理外网访问失败后，由协调代理实际联网打开官方页面并共享原文片段，逐段核对再引用。已核对四份官方来源，包括Elastic的词频饱和与参数讲解；历史算法讲解不等同于当前引擎全部数值细节。教学数据及公式脚本实际运行，输出保存在_work/calc；这些算术结果不代表产品效果。独立读者测验：待独立读者测验。没有展开概率模型完整推导、其他BM25变体和具体引擎配置。
+ 
+ ## 参考来源
+ 
+@@ -162,3 +177,6 @@
+ - 〔官方〕[Elasticsearch Standard analyzer](https://www.elastic.co/docs/reference/text-analysis/analysis-standard-analyzer)：分析器与词项。
+ - 〔官方〕[Elasticsearch match query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-match-query)：普通text字段先分析后匹配的契约。
+ - 〔官方〕[Elastic BM25算法与参数](https://www.elastic.co/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables)：历史算法讲解，k1的饱和与b的长度影响。
++
++- 〔论文〕[Microsoft Cambridge at TREC–13](https://www.microsoft.com/en-us/research/wp-content/uploads/2004/01/Microsoft-Cambridge-at-TREC-2004-Web-and-HARD-track.pdf)：2004作者报告§4.1，在线修正版，多字段归一化及统一饱和。
++- 〔论文〕[Optimisation Methods for Ranking Functions with Multiple Parameters](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/optimisation_multiple_parameters.pdf)：CIKM 2006，§3.2，字段权重和参数。

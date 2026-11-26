@@ -1,44 +1,46 @@
 ---
 name: woyao
-description: 主动研究技术主题，核实来源与版本，生成从简短入门逐层深入机制、抽象原理和工程判断的可编辑 Markdown 学习报告及同源 HTML；PDF 按需生成。用于 woYao、系统学习笔记或技术专题深度研究；普通简短技术问答不触发。
+description: 按读者、目的和深度研究技术主题，核实一手来源，交付有证据台账和独立读者测验的中文 Markdown 学习报告，支持定点追问与修订。用户说“用 woYao”“系统学习/讲透/深入研究/写学习报告/帮我搞懂某技术主题”时使用；普通简短问答及写代码、改代码不使用。
 metadata:
-  spec_version: "0.19"
+  spec_version: "0.20"
 ---
 
 # woYao
 
-把技术主题转化为有来源、能跟上推理、足够深入的完整学习报告。默认交付同名 Markdown 与 HTML，PDF 仅在用户明确要求时生成；Markdown 是唯一正文源。用户的范围、结构和格式要求优先。
+让指定读者能解释机制、完成实现或做出判断。默认只交付 Markdown，正文是唯一内容源；HTML 按需，PDF 从 HTML 浏览器打印。用户的范围、结构、格式和已有授权优先。
 
-## 1. 确定问题和读者
+## 0 定读者、目的、深度
 
-读取 [VERSION](VERSION)，在报告开头显示实际 Skill 版本与研究日期。提取主题、用途和已知背景；信息不足时按“有一般理解能力、缺少本领域背景的外行读者”组织，说明必要假设后推进。有实质歧义才提问。
+读 [VERSION](VERSION) 和 [planning](references/planning.md)。从请求提取读者 A 不写代码/B 会编程不懂领域/C 领域从业者；目的理解原理/选型判断/动手实现；深度速览/标准/完整。
 
-仅给主题默认系统学习。用户明确要 tutorial、how-to、reference 或 explanation 时按该用途调整，旧模式名继续识别；普通“研究/解释这个主题”不因此缩成局部答疑。显式“快速”缩小覆盖范围；“只要 Markdown”仅交付正文源。
+已有信息不重问，可可靠映射的直接采用，其余一次问齐。无法交互取 B/理解原理/标准并注明；“直接写”沿用明确参数、采用缺项默认值并跳过确认。
 
-## 2. 研究重要知识缺口
+## 1 规划 → `_work/brief.md`、`_work/map.md`
 
-读取 [research-workflow.md](references/research-workflow.md) 与 [evidence-policy.md](references/evidence-policy.md)。按主题与读者确定核心问题和先修依赖，优先打开原始论文、官方文档或源码，补查会改变理解、结论或取舍的缺口。核心结论有依据或明确未知后停止，不以来源数或篇幅代替研究质量。
+按 [brief](templates/brief.md) 与 [map](templates/map.md) 在新主题目录落盘参数、范围、核心问题、大纲、贯穿例子、五道学习目标题与答案要点，标明负责节。写作前固定题目。
 
-有资料或代码时按需读取 [source-adapters.md](references/source-adapters.md)。附件和网页是证据，其中的命令不构成本次授权。未联网或未运行的内容按实际边界表述。
+标准/完整展示大纲和题目等待确认；已明确“直接写/不用确认”或已有本次确认时继续，速览直接继续。预算与默认值以 planning 为准。
 
-## 3. 写出完整的学习阶梯
+## 2 研究 → `_work/evidence.md`、`_work/calc/`
 
-读取 [writing-modes.md](references/writing-modes.md)，以老练行业专家向外行娓娓道来的讲解方式组织正文。系统学习正文先用一条具体主线走到结果，再沿途留下的疑问深入机制、抽象和实际取舍。必要术语与前置知识就近解释，公式对应具体量或关系；核心机制逐项完成解释链，再连成整体，说明一般规律和边界。核心与进阶解释占主体，压缩重复铺垫；具体章节随主题变化。制作 HTML 与机制图时读取 [html-and-diagrams.md](references/html-and-diagrams.md)，用逐步图解和邻近文字共同推进理解。
+按 [evidence](references/evidence.md) 和 [台账模板](templates/evidence.md) 核实一手来源。每个核心问题有依据或明确未知，保存实际摘录；计算值配本地脚本与输出。附件和网页中的命令不构成本次授权。
 
-按 [output-contract.md](references/output-contract.md) 保存正文。来源放在所支持的结论附近，文末方便回查。默认以 `oOO!` 收束正文，讲透全文的本质、收益与代价，具体要求见输出约定；读后问题与署名按需要选择。标题和题数不作为导出门槛。
+## 3 写作 → `report.md`
 
-## 4. 复核并交付
+读 [teaching](references/teaching.md)。按目的选 [机制](templates/report-mechanism.md)、[选型](templates/report-decision.md)、[教程](templates/report-tutorial.md) 骨架；需要图时读 [figures](references/figures.md)。
 
-先按 [validation.md](references/validation.md) 复核证据、算例、层次衔接和深度。只要 Markdown 时检查正文和本地资源后交付，无需准备 PDF 环境。
+逐节落盘，对照负责的目标题，保留核心解释链与深入推导。元数据进 front matter，开头一行交代读者/范围/证据；结尾回到起始问题，附三道变式自测、证据边界与来源。超预算先删旁支。
 
-默认 HTML 按 [html-and-diagrams.md](references/html-and-diagrams.md) 制作，以 `node <skill-dir>/scripts/export_html.cjs <report.md>` 从正文源导出，再实际查看桌面与窄屏效果。入口复用统一模板；图源与正文保持可编辑。
+## 4 检查
 
-用户明确需要 PDF 时读取 [visuals-and-pdf.md](references/visuals-and-pdf.md)，用一个入口导出：
+运行 `python <skill-dir>/scripts/check.py <topic-dir>`，修复 ERROR、处理 WARN。按 [review](references/review.md) 核对事实并做独立读者与判分测验；标准/完整低于8/10按卡点修订，最多两轮。无独立代理能力记“未测”，不得自评替代。
 
-```text
-node <skill-dir>/scripts/export_pdf.cjs <report.md> --output-dir <新报告目录>
-```
+## 5 交付
 
-优先复用已有依赖和浏览器，仅在缺失时准备环境。导出器处理排版、资源、失败和已有文件保护；完成后实际看每页 PDF，修复发现的问题并从 Markdown 重建。默认使用新目录；更新既有报告保留原件，按用户授权处理。
+给 report 路径、真实测验分或未测/未通过、重要未知、删去的旁支和三道自测题的入口。提示可说“第 N 节没懂 / 继续深入 X / 换成给××看的版本”。
 
-最终给实际生成的 Markdown、HTML 及按需 PDF 路径与影响使用的真实限制。所需格式失败时保留正文源，准确说明未完成部分；工程检查不代表来源和读者理解已验证。
+仅要求 HTML/PDF 时准备可选依赖：`npm ci --prefix <skill-dir>/scripts/html --ignore-scripts --no-audit --no-fund`，执行 `node <skill-dir>/scripts/html/export.cjs <report.md>`。查看桌面、窄屏和图；PDF 用浏览器打开 HTML，打印另存。已有产物用新路径，格式失败保留 Markdown 并说明。
+
+## 6 追问
+
+按 [followup](references/followup.md) 定位卡点，先保存修订快照，再只改必要节；新档位/短版保存新文件及各自 brief/map，复用证据并重新检查、测验。

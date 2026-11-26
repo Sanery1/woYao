@@ -1,0 +1,1246 @@
+{
+  "rubric": "每题 2 分：全部固定要点；1 分：至少一半固定要点（奇数项向上取整）；0 分：其余或整题明确报告未说明。仅依据对应题答案和直接引文；不从主线或其他题补分。部分答出、部分未说明时按已命中要点评分。",
+  "topics": {
+    "T1": {
+      "rounds": [
+        {
+          "round": 1,
+          "questions": [
+            {
+              "number": 1,
+              "score": 0,
+              "hits": [
+                1
+              ],
+              "missing": [
+                2,
+                3
+              ],
+              "evidence": "不是；……额外一次命中的收益越来越小。……k₁=1.2 时……因子只从 1 变为约 1.964286。",
+              "report_gap": "只明确收益饱和；未说明单词贡献上限由 k1 控制、以及防止堆砌关键词。",
+              "question": "一个查询词在文档里出现 10 次，它的得分贡献是出现 1 次时的 10 倍吗？为什么？",
+              "hit_points": [
+                "不是 10 倍，增长逐渐变慢（饱和）"
+              ],
+              "missing_points": [
+                "单个词的贡献有上限，由 k1 控制",
+                "这样设计是为了防止靠堆砌关键词刷分"
+              ]
+            },
+            {
+              "number": 2,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "其他条件一样且 b 为正时，短文贡献更高……b=0 时不考虑长度，b=1……相对平均长度。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "两篇文档里某个查询词都出现 2 次，一篇很短、一篇很长，谁的得分更高？参数 b 在这里起什么作用？",
+              "hit_points": [
+                "短文档得分更高（b>0 时）",
+                "长度与语料平均长度相比，越长折扣越大",
+                "b 控制长度归一化的强度，b=0 时不考虑长度"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 3,
+              "score": 2,
+              "hits": [
+                1,
+                2
+              ],
+              "missing": [],
+              "evidence": "在当前文档集合中到处都有……IDF 就较低……高文档频率导致低区分力。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "为什么\"系统\"\"的\"这类词即使命中，对得分的贡献也很小？",
+              "hit_points": [
+                "这类词在很多文档里都出现，文档频率高",
+                "IDF 低，区分能力弱"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 4,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "如果没有进入候选，k₁、b 不能凭空建立……应先检查……切出的词项、同义词、查询结构和过滤条件。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "你想找的文档根本不在结果列表里。调大或调小 k1、b 能解决吗？应该先查什么？",
+              "hit_points": [
+                "不能，参数只影响已命中文档之间的排序",
+                "先查分词/分析器的结果",
+                "再查查询条件（如 AND/OR）和召回"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 5,
+              "score": 0,
+              "hits": [],
+              "missing": [
+                1,
+                2
+              ],
+              "evidence": "报告未说明。……没有介绍向量余弦分数，也没有给出两种分数的融合办法。",
+              "report_gap": "缺分数尺度/分布不可直接比较，以及 RRF 或归一化融合。",
+              "question": "做混合检索时，为什么不能直接把 BM25 分数和向量余弦相似度相加？可以怎么做？",
+              "hit_points": [],
+              "missing_points": [
+                "两种分数的尺度和分布不同，不能直接比较",
+                "可以按名次融合（如 RRF）或先做归一化"
+              ]
+            }
+          ],
+          "total_score": 6
+        },
+        {
+          "round": 2,
+          "questions": [
+            {
+              "number": 1,
+              "score": 0,
+              "hits": [
+                1
+              ],
+              "missing": [
+                2,
+                3
+              ],
+              "evidence": "不是 10 倍。……收益逐渐饱和；……因子只从 1 到约 1.964286。",
+              "report_gap": "未表达贡献上限由 k1 控制和防关键词堆砌。",
+              "question": "一个查询词在文档里出现 10 次，它的得分贡献是出现 1 次时的 10 倍吗？为什么？",
+              "hit_points": [
+                "不是 10 倍，增长逐渐变慢（饱和）"
+              ],
+              "missing_points": [
+                "单个词的贡献有上限，由 k1 控制",
+                "这样设计是为了防止靠堆砌关键词刷分"
+              ]
+            },
+            {
+              "number": 2,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "b 为正时，短文中的该词贡献较高……b=0 不按长度调整……相对长度比。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "两篇文档里某个查询词都出现 2 次，一篇很短、一篇很长，谁的得分更高？参数 b 在这里起什么作用？",
+              "hit_points": [
+                "短文档得分更高（b>0 时）",
+                "长度与语料平均长度相比，越长折扣越大",
+                "b 控制长度归一化的强度，b=0 时不考虑长度"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 3,
+              "score": 2,
+              "hits": [
+                1,
+                2
+              ],
+              "missing": [],
+              "evidence": "在很多文档出现，IDF 就低，命中它们不太能缩小候选范围。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "为什么\"系统\"\"的\"这类词即使命中，对得分的贡献也很小？",
+              "hit_points": [
+                "这类词在很多文档里都出现，文档频率高",
+                "IDF 低，区分能力弱"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 4,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "没进入候选，调 k1、b 不能补出不存在的匹配证据。先查实际词项、同义词处理、查询构造和过滤条件。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "你想找的文档根本不在结果列表里。调大或调小 k1、b 能解决吗？应该先查什么？",
+              "hit_points": [
+                "不能，参数只影响已命中文档之间的排序",
+                "先查分词/分析器的结果",
+                "再查查询条件（如 AND/OR）和召回"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 5,
+              "score": 0,
+              "hits": [],
+              "missing": [
+                1,
+                2
+              ],
+              "evidence": "报告未说明。……没有说明向量余弦相似度的数值性质，也没有介绍混合分数合并办法。",
+              "report_gap": "缺异构分数尺度/分布差异和可用融合办法。",
+              "question": "做混合检索时，为什么不能直接把 BM25 分数和向量余弦相似度相加？可以怎么做？",
+              "hit_points": [],
+              "missing_points": [
+                "两种分数的尺度和分布不同，不能直接比较",
+                "可以按名次融合（如 RRF）或先做归一化"
+              ]
+            }
+          ],
+          "total_score": 6
+        }
+      ],
+      "mean_total_score": 6
+    },
+    "T2": {
+      "rounds": [
+        {
+          "round": 1,
+          "questions": [
+            {
+              "number": 1,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "missing": [],
+              "evidence": "初始历史有 system 和 user……追加完整的 assistant 消息……tool_calls……各个调用追加 role=tool……tool_call_id……随后……发给模型。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "一轮带工具调用的交互中，消息列表依次追加了哪几类消息？",
+              "hit_points": [
+                "user 消息",
+                "含 tool_calls 的 assistant 消息",
+                "每个 tool_call 对应一条 tool 消息（带 tool_call_id）",
+                "然后再次请求模型"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 2,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "arguments 是字符串，内容是 JSON……json.loads……确认参数是期待的对象、字段齐全且无多余字段，并检查类型和范围。",
+              "report_gap": "参数不合法的检查命中第 3 项；未单独说明解析失败分支，不影响该项中“或参数不合法”的满足。",
+              "question": "tool_calls 里的 arguments 是什么类型？执行工具前要做什么处理？",
+              "hit_points": [
+                "是 JSON 字符串",
+                "需要解析（json.loads）",
+                "需要处理解析失败或参数不合法的情况"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 3,
+              "score": 1,
+              "hits": [
+                1
+              ],
+              "missing": [
+                2
+              ],
+              "evidence": "没有工具调用、finish_reason 为 stop……正常返回……max_turns……阻止循环一直继续……不能精确限制费用。",
+              "report_gap": "说清终止与防持续循环，但没有正面说明最大轮数用于防成本失控；费用不能精确限制也不等于该作用的说明。",
+              "question": "循环在什么条件下结束？为什么还要设置最大轮数？",
+              "hit_points": [
+                "模型返回的消息不含 tool_calls 时结束"
+              ],
+              "missing_points": [
+                "设置最大轮数是为了防止无限循环和成本失控"
+              ]
+            },
+            {
+              "number": 4,
+              "score": 1,
+              "hits": [
+                1
+              ],
+              "missing": [
+                2
+              ],
+              "evidence": "把参数失败写成 ok=false……模型下一轮……纠正参数或向用户说明失败……直接退出就没有这次反馈机会……缺失调用标识……网络超时……停止并报告。",
+              "report_gap": "完整区分可恢复与停止错误；未直接表达抛异常退出会中断整个任务，仅说失去本次反馈机会。",
+              "question": "工具执行出错时，为什么应该把错误信息作为工具结果返回给模型，而不是直接抛异常退出？",
+              "hit_points": [
+                "可恢复的参数或工具错误可供模型修正；权限或不可恢复错误应停止或升级"
+              ],
+              "missing_points": [
+                "直接退出会中断整个任务"
+              ]
+            },
+            {
+              "number": 5,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "在 TOOLS 增加……名字、描述和参数 schema；在 execute 增加允许的名字分支、对应参数校验与真正的执行逻辑。",
+              "report_gap": "三项接入位置均由代码迁移表述覆盖；未提供完整读文件例子不影响此题。",
+              "question": "要新增一个\"读文件\"工具，需要改哪几处？",
+              "hit_points": [
+                "实现工具函数",
+                "在工具 schema 中声明名称、描述和参数",
+                "在分发表/映射中注册"
+              ],
+              "missing_points": []
+            }
+          ],
+          "total_score": 8
+        },
+        {
+          "round": 2,
+          "questions": [
+            {
+              "number": 1,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "missing": [],
+              "evidence": "初始……user 问题……追加带 tool_calls 的 assistant……每个调用……带 tool_call_id 的 tool 结果；下一次请求模型。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "一轮带工具调用的交互中，消息列表依次追加了哪几类消息？",
+              "hit_points": [
+                "user 消息",
+                "含 tool_calls 的 assistant 消息",
+                "每个 tool_call 对应一条 tool 消息（带 tool_call_id）",
+                "然后再次请求模型"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 2,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "arguments 是 JSON 字符串……json.loads……验证函数白名单、字段集合、类型、数值范围。",
+              "report_gap": "参数不合法检查满足第 3 项的或条件。",
+              "question": "tool_calls 里的 arguments 是什么类型？执行工具前要做什么处理？",
+              "hit_points": [
+                "是 JSON 字符串",
+                "需要解析（json.loads）",
+                "需要处理解析失败或参数不合法的情况"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 3,
+              "score": 1,
+              "hits": [
+                1
+              ],
+              "missing": [
+                2
+              ],
+              "evidence": "没有工具调用、finish_reason 是 stop 且有非空文本时正常返回……max_turns 耗尽也停止，因为模型可能不断请求同一工具。",
+              "report_gap": "未说明最大轮数防成本失控。",
+              "question": "循环在什么条件下结束？为什么还要设置最大轮数？",
+              "hit_points": [
+                "模型返回的消息不含 tool_calls 时结束"
+              ],
+              "missing_points": [
+                "设置最大轮数是为了防止无限循环和成本失控"
+              ]
+            },
+            {
+              "number": 4,
+              "score": 1,
+              "hits": [
+                1
+              ],
+              "missing": [
+                2
+              ],
+              "evidence": "参数错误……模型下一轮才有机会纠正或向用户说明失败……缺失调用标识……网络……应停止并报告。",
+              "report_gap": "未直接表达抛异常退出会中断整个任务。",
+              "question": "工具执行出错时，为什么应该把错误信息作为工具结果返回给模型，而不是直接抛异常退出？",
+              "hit_points": [
+                "可恢复的参数或工具错误可供模型修正；权限或不可恢复错误应停止或升级"
+              ],
+              "missing_points": [
+                "直接退出会中断整个任务"
+              ]
+            },
+            {
+              "number": 5,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "给 TOOLS 增加名称、描述和参数 schema；在 execute 白名单分发中增加读文件分支、参数验证及实际读取。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "要新增一个\"读文件\"工具，需要改哪几处？",
+              "hit_points": [
+                "实现工具函数",
+                "在工具 schema 中声明名称、描述和参数",
+                "在分发表/映射中注册"
+              ],
+              "missing_points": []
+            }
+          ],
+          "total_score": 8
+        }
+      ],
+      "mean_total_score": 8
+    },
+    "T3": {
+      "rounds": [
+        {
+          "round": 1,
+          "questions": [
+            {
+              "number": 1,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "业务输入及已经确认的结果、当前控制位置或下一步……稳定的运行或 thread 身份。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "checkpoint 至少要保存哪些信息，才能从中断的地方继续执行？",
+              "hit_points": [
+                "当前的状态数据",
+                "执行进度（已完成到哪一步、下一步做什么）",
+                "用来定位这次执行的标识（如线程/运行 id）"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 2,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "新进程看到的还是旧状态……可能把工具步骤再执行一次……按原幂等键去重……否则……重复创建订单……未知并核对。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "进程在\"工具已经调用成功、checkpoint 还没写入\"的时候崩溃，恢复后会发生什么？",
+              "hit_points": [
+                "从上一个 checkpoint 恢复",
+                "如果恢复机制重试未完成步骤，这一步可能重新执行",
+                "外部动作可能重复，须幂等或核验"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 3,
+              "score": 1,
+              "hits": [
+                1,
+                2
+              ],
+              "missing": [
+                3
+              ],
+              "evidence": "外部系统提交和本地 checkpoint 提交通常不是同一个事务……崩溃窗口……业务效果是否唯一还要由稳定身份和目标系统约束。",
+              "report_gap": "未说明“至少一次”也依赖可靠重试与最终恢复，第 3 固定要点不完整。",
+              "question": "为什么说 checkpoint 本身不能保证外部副作用\"恰好执行一次\"？",
+              "hit_points": [
+                "外部调用和写 checkpoint 不是同一个原子操作",
+                "两者之间可能崩溃"
+              ],
+              "missing_points": [
+                "checkpoint 单独不保证恰好一次；至少一次还要求可靠重试和最终恢复"
+              ]
+            },
+            {
+              "number": 4,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "同一笔业务付款……稳定 operation_id/幂等键……首次和重试都使用原键……付款服务必须按键去重……按原键查询或重试。",
+              "report_gap": "以同一业务付款稳定身份作为运行/步骤固定键的等效表述；本题无缺口。",
+              "question": "为\"发起付款\"这样的步骤设计一个防止重复执行的方案。",
+              "hit_points": [
+                "使用幂等键（由运行 id 和步骤确定，重试时复用）",
+                "由服务端按幂等键去重",
+                "或在恢复时先查询外部状态，确认是否已执行"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 5,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "昂贵计算、有副作用的动作……失败可能重跑前半段……更多调度、持久记录、序列化、存储、提交延迟和结构复杂度。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "什么时候应该把一个大步骤拆成多个小步骤，分别做 checkpoint？代价是什么？",
+              "hit_points": [
+                "步骤包含多个昂贵或有副作用的操作时拆分",
+                "拆分后崩溃时需要重做的范围更小",
+                "代价是写入次数和存储增加、状态设计更复杂"
+              ],
+              "missing_points": []
+            }
+          ],
+          "total_score": 9
+        },
+        {
+          "round": 2,
+          "questions": [
+            {
+              "number": 1,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "业务输入……当前控制位置或下一步、已完成动作结果和未完成调用的身份……并给出 run_id、phase……next 示例。",
+              "report_gap": "直接支持中 run_id 命中定位执行标识。",
+              "question": "checkpoint 至少要保存哪些信息，才能从中断的地方继续执行？",
+              "hit_points": [
+                "当前的状态数据",
+                "执行进度（已完成到哪一步、下一步做什么）",
+                "用来定位这次执行的标识（如线程/运行 id）"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 2,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "恢复读取旧状态……可能再次发送工具请求……同一稳定幂等键……去重……未知并核对。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "进程在\"工具已经调用成功、checkpoint 还没写入\"的时候崩溃，恢复后会发生什么？",
+              "hit_points": [
+                "从上一个 checkpoint 恢复",
+                "如果恢复机制重试未完成步骤，这一步可能重新执行",
+                "外部动作可能重复，须幂等或核验"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 3,
+              "score": 1,
+              "hits": [
+                1,
+                2
+              ],
+              "missing": [
+                3
+              ],
+              "evidence": "不能和远端业务提交组成同一原子事务……重复窗口……远端成功、本地未确认的间隙。",
+              "report_gap": "未说明至少一次需可靠重试与最终恢复。",
+              "question": "为什么说 checkpoint 本身不能保证外部副作用\"恰好执行一次\"？",
+              "hit_points": [
+                "外部调用和写 checkpoint 不是同一个原子操作",
+                "两者之间可能崩溃"
+              ],
+              "missing_points": [
+                "checkpoint 单独不保证恰好一次；至少一次还要求可靠重试和最终恢复"
+              ]
+            },
+            {
+              "number": 4,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "同一笔付款固定操作身份……同一幂等键……服务同键复用结果……超时记 unknown，使用原身份查询或重试。",
+              "report_gap": "业务付款固定身份等效于稳定运行/步骤键；本题无缺口。",
+              "question": "为\"发起付款\"这样的步骤设计一个防止重复执行的方案。",
+              "hit_points": [
+                "使用幂等键（由运行 id 和步骤确定，重试时复用）",
+                "由服务端按幂等键去重",
+                "或在恢复时先查询外部状态，确认是否已执行"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 5,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "昂贵工作……副作用……独立恢复的小步骤，减少整段重做……更多调度、持久化记录、延迟、存储及复杂度。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "什么时候应该把一个大步骤拆成多个小步骤，分别做 checkpoint？代价是什么？",
+              "hit_points": [
+                "步骤包含多个昂贵或有副作用的操作时拆分",
+                "拆分后崩溃时需要重做的范围更小",
+                "代价是写入次数和存储增加、状态设计更复杂"
+              ],
+              "missing_points": []
+            }
+          ],
+          "total_score": 9
+        }
+      ],
+      "mean_total_score": 9
+    },
+    "T4": {
+      "rounds": [
+        {
+          "round": 1,
+          "questions": [
+            {
+              "number": 1,
+              "score": 1,
+              "hits": [
+                1
+              ],
+              "missing": [
+                2
+              ],
+              "evidence": "注意力会判断当前这个位置该从历史哪些位置取信息……没有说每个历史位置都同样重要。",
+              "report_gap": "未在本题答案/直接引文表达当前 Q 对可见 K 的关联计算及普通因果全注意力的范围/滑动窗口例外。",
+              "question": "模型每生成一个新的字（token），为什么都要\"回看\"前面所有的内容？",
+              "hit_points": [
+                "模型通过注意力机制决定下一个 token"
+              ],
+              "missing_points": [
+                "在普通因果全注意力模型中，当前 query 和可见前文的 key 计算关联；滑动窗口等结构例外"
+              ]
+            },
+            {
+              "number": 2,
+              "score": 1,
+              "hits": [
+                1
+              ],
+              "missing": [
+                2
+              ],
+              "evidence": "下一步还要重新产生前面历史位置已经算过的 K 和 V。",
+              "report_gap": "未直接说明文本越长，重复计算越多；不能从主线或其他题补足。",
+              "question": "如果不用 KV cache，会多做什么重复工作？",
+              "hit_points": [
+                "每生成一个 token，都要重新计算前面所有 token 的中间结果（K、V）"
+              ],
+              "missing_points": [
+                "文本越长，重复计算越多"
+              ]
+            },
+            {
+              "number": 3,
+              "score": 2,
+              "hits": [
+                1,
+                2
+              ],
+              "missing": [],
+              "evidence": "保存每层历史位置的 K 和 V……下一步用当前 token 的 Q……旧 Q 没有在这个流程里再用到。",
+              "report_gap": "虽由流程推导，答案已正确表达旧 Q 不再复用，接受等效表述。",
+              "question": "KV cache 存的是什么？为什么不需要缓存 Q？",
+              "hit_points": [
+                "存的是已处理 token 在每一层的 K 和 V",
+                "Q 只在计算当前这个新 token 时用一次，之后不再需要"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 4,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "所有活跃请求保留的 token 总数……层数、KV 通道数……公式 2 × L × H × D × S × T。",
+              "report_gap": "公式直接支持线性关系；本题无缺口。",
+              "question": "KV cache 占用的显存随什么增长？",
+              "hit_points": [
+                "随上下文长度（token 数）大致线性增长",
+                "随同时服务的请求数增长",
+                "和模型的层数、规模有关"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 5,
+              "score": 2,
+              "hits": [
+                1,
+                2
+              ],
+              "missing": [],
+              "evidence": "不同活跃请求一般各存自己的上下文缓存；长对话和更多请求……控制回答长度……分页……KV 量化。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "同一张显卡，为什么对话越长、同时在线的人越多，就越容易显存不够？有哪些缓解思路？",
+              "hit_points": [
+                "KV cache 总量 ≈ 每个请求的长度 × 请求数，会把显存占满",
+                "至少说出两种缓解办法：减少 KV 头数（GQA/MQA）、KV 量化、分页管理（PagedAttention）、限制上下文长度或使用滑动窗口"
+              ],
+              "missing_points": []
+            }
+          ],
+          "total_score": 8
+        },
+        {
+          "round": 2,
+          "questions": [
+            {
+              "number": 1,
+              "score": 1,
+              "hits": [
+                1
+              ],
+              "missing": [
+                2
+              ],
+              "evidence": "当前位置的注意力需要判断从哪些历史位置取信息……当前Q仍然要与历史K匹配，再汇集相应V。",
+              "report_gap": "已表达 Q/K 匹配，但未说明普通因果全注意力范围与滑动窗口等例外，第 2 固定要点不完整。",
+              "question": "模型每生成一个新的字（token），为什么都要\"回看\"前面所有的内容？",
+              "hit_points": [
+                "模型通过注意力机制决定下一个 token"
+              ],
+              "missing_points": [
+                "在普通因果全注意力模型中，当前 query 和可见前文的 key 计算关联；滑动窗口等结构例外"
+              ]
+            },
+            {
+              "number": 2,
+              "score": 1,
+              "hits": [
+                1
+              ],
+              "missing": [
+                2
+              ],
+              "evidence": "会反复计算已经处理过的历史位置的 K、V；缓存把这些结果保留。",
+              "report_gap": "未直接说明文本越长重复计算越多。",
+              "question": "如果不用 KV cache，会多做什么重复工作？",
+              "hit_points": [
+                "每生成一个 token，都要重新计算前面所有 token 的中间结果（K、V）"
+              ],
+              "missing_points": [
+                "文本越长，重复计算越多"
+              ]
+            },
+            {
+              "number": 3,
+              "score": 1,
+              "hits": [
+                1
+              ],
+              "missing": [
+                2
+              ],
+              "evidence": "缓存的是各层历史位置的 K 和 V……为什么旧 Q 不再需要、为何不缓存 Q……报告未说明。",
+              "report_gap": "本题保留正确缓存内容的一半分；Q 不缓存原因明确未回答。",
+              "question": "KV cache 存的是什么？为什么不需要缓存 Q？",
+              "hit_points": [
+                "存的是已处理 token 在每一层的 K 和 V"
+              ],
+              "missing_points": [
+                "Q 只在计算当前这个新 token 时用一次，之后不再需要"
+              ]
+            },
+            {
+              "number": 4,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "活跃请求实际保留的 token 总数……请求数翻倍也会翻倍……层数、KV 头数……公式。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "KV cache 占用的显存随什么增长？",
+              "hit_points": [
+                "随上下文长度（token 数）大致线性增长",
+                "随同时服务的请求数增长",
+                "和模型的层数、规模有关"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 5,
+              "score": 2,
+              "hits": [
+                1,
+                2
+              ],
+              "missing": [],
+              "evidence": "每个活跃请求……上下文缓存；对话变长和活跃请求增多……限制输出……分页……KV 量化。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "同一张显卡，为什么对话越长、同时在线的人越多，就越容易显存不够？有哪些缓解思路？",
+              "hit_points": [
+                "KV cache 总量 ≈ 每个请求的长度 × 请求数，会把显存占满",
+                "至少说出两种缓解办法：减少 KV 头数（GQA/MQA）、KV 量化、分页管理（PagedAttention）、限制上下文长度或使用滑动窗口"
+              ],
+              "missing_points": []
+            }
+          ],
+          "total_score": 7
+        }
+      ],
+      "mean_total_score": 7.5
+    },
+    "T5": {
+      "rounds": [
+        {
+          "round": 1,
+          "questions": [
+            {
+              "number": 1,
+              "score": 0,
+              "hits": [],
+              "missing": [
+                1,
+                2
+              ],
+              "evidence": "原生安装包里……固定秘密，不能获得受控服务器那样的保密能力……未说明网页前端……没有进一步解释……为什么保不住。",
+              "report_gap": "缺运行在用户设备、可查看/反编译的原因，未说明公开客户端类别；单独结论未完整命中任一固定要点。",
+              "question": "为什么手机 App 或网页前端不能像服务器那样保管 client_secret？",
+              "hit_points": [],
+              "missing_points": [
+                "代码运行在用户的设备上，可以被反编译或直接查看",
+                "这类应用属于公开客户端，无法保密"
+              ]
+            },
+            {
+              "number": 2,
+              "score": 2,
+              "hits": [
+                1,
+                2
+              ],
+              "missing": [],
+              "evidence": "拿……临时兑换凭据去冒领访问权限，换到访问令牌后访问日历。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "如果授权码被别的 App 截获，而且没有使用 PKCE，会发生什么？",
+              "hit_points": [
+                "攻击者可以用授权码去换取 access token",
+                "从而冒用用户的授权"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 3,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "随机验证串……保留原值……挑战值……授权码绑定……提交验证串……攻击者只有授权码……没有原值。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "PKCE 是怎样让\"截获授权码\"变得没用的？",
+              "hit_points": [
+                "发起授权时，客户端先生成随机的 code_verifier，只发送由它派生的 code_challenge",
+                "用授权码换 token 时必须提交 code_verifier，由服务器校验",
+                "攻击者只有授权码，没有 code_verifier"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 4,
+              "score": 2,
+              "hits": [
+                1,
+                2
+              ],
+              "missing": [],
+              "evidence": "S256……难以倒推原值的指纹，plain 的挑战值就是验证串本身……前段请求……把……秘密一起交给了他。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "为什么推荐 S256 方式，而不是 plain？",
+              "hit_points": [
+                "S256 发送的是 verifier 的哈希，即使授权请求被截获也推算不出 verifier",
+                "plain 方式下 challenge 就是 verifier 本身，截获请求就等于泄露"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 5,
+              "score": 0,
+              "hits": [
+                2
+              ],
+              "missing": [
+                1,
+                3
+              ],
+              "evidence": "已经发出的访问令牌被偷也不由 PKCE 解决……不负责识别某个应用的真伪或重新识别用户。",
+              "report_gap": "命中令牌失窃；未明确仅保护授权码换 token 这一步，也未给钓鱼假授权页或设备被控。应用真伪表述不足以等同这两类具体威胁。",
+              "question": "PKCE 防不住哪些问题？",
+              "hit_points": [
+                "防不住 token 发放后被窃取（例如 XSS）"
+              ],
+              "missing_points": [
+                "它只保护\"用授权码换 token\"这一步",
+                "防不住钓鱼的假授权页或设备已被控制"
+              ]
+            }
+          ],
+          "total_score": 6
+        },
+        {
+          "round": 2,
+          "questions": [
+            {
+              "number": 1,
+              "score": 0,
+              "hits": [],
+              "missing": [
+                1,
+                2
+              ],
+              "evidence": "未解释安装包为何守不住秘密；网页前端为何不能保管 client_secret，报告未说明。",
+              "report_gap": "缺用户设备可查看/反编译和公开客户端无法保密两个固定要点。",
+              "question": "为什么手机 App 或网页前端不能像服务器那样保管 client_secret？",
+              "hit_points": [],
+              "missing_points": [
+                "代码运行在用户的设备上，可以被反编译或直接查看",
+                "这类应用属于公开客户端，无法保密"
+              ]
+            },
+            {
+              "number": 2,
+              "score": 2,
+              "hits": [
+                1,
+                2
+              ],
+              "missing": [],
+              "evidence": "拿截到的临时码去冒领访问令牌，再用令牌读取授权范围内的日历数据。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "如果授权码被别的 App 截获，而且没有使用 PKCE，会发生什么？",
+              "hit_points": [
+                "攻击者可以用授权码去换取 access token",
+                "从而冒用用户的授权"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 3,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "生成验证串并留住原值……指纹作为挑战值……与授权码关联……交码和原验证串……只有码……校验就不能通过。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "PKCE 是怎样让\"截获授权码\"变得没用的？",
+              "hit_points": [
+                "发起授权时，客户端先生成随机的 code_verifier，只发送由它派生的 code_challenge",
+                "用授权码换 token 时必须提交 code_verifier，由服务器校验",
+                "攻击者只有授权码，没有 code_verifier"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 4,
+              "score": 2,
+              "hits": [
+                1,
+                2
+              ],
+              "missing": [],
+              "evidence": "plain 把验证串原值当挑战值……攻击者就一起拿到了秘密；S256 先送难以倒推的摘要。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "为什么推荐 S256 方式，而不是 plain？",
+              "hit_points": [
+                "S256 发送的是 verifier 的哈希，即使授权请求被截获也推算不出 verifier",
+                "plain 方式下 challenge 就是 verifier 本身，截获请求就等于泄露"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 5,
+              "score": 0,
+              "hits": [
+                2
+              ],
+              "missing": [
+                1,
+                3
+              ],
+              "evidence": "已发出的访问令牌被盗也不由 PKCE 解决……不是识别用户或应用真伪。",
+              "report_gap": "缺只保护兑码步骤的明确范围；缺钓鱼假授权页或设备被控。",
+              "question": "PKCE 防不住哪些问题？",
+              "hit_points": [
+                "防不住 token 发放后被窃取（例如 XSS）"
+              ],
+              "missing_points": [
+                "它只保护\"用授权码换 token\"这一步",
+                "防不住钓鱼的假授权页或设备已被控制"
+              ]
+            }
+          ],
+          "total_score": 6
+        }
+      ],
+      "mean_total_score": 6
+    },
+    "T6": {
+      "rounds": [
+        {
+          "round": 1,
+          "questions": [
+            {
+              "number": 1,
+              "score": 2,
+              "hits": [
+                1
+              ],
+              "missing": [],
+              "evidence": "过滤后候选规模……请求速率、延迟……写入删除及嵌入重建频率、资源与运维预算。",
+              "report_gap": "至少覆盖规模、请求速率/延迟、过滤、写更频率、运维五个维度，满足至少四个。",
+              "question": "决定这个选型的关键需求维度有哪些？",
+              "hit_points": [
+                "至少说出 4 个：数据量和增长、QPS 和延迟、过滤需求、写入/更新频率、团队运维能力、与现有 PG 数据的事务一致性和 join 需求"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 2,
+              "score": 0,
+              "hits": [],
+              "missing": [
+                1,
+                2
+              ],
+              "evidence": "报告未说明二者之间建索引时间、内存、训练、更新等方面的主要取舍。",
+              "report_gap": "缺 HNSW 速度/召回与内存/构建成本取舍；缺 IVF 低内存、训练及 probes/lists 召回关系。结构描述不足命中。",
+              "question": "HNSW 和 IVF 两类索引的主要取舍是什么？",
+              "hit_points": [],
+              "missing_points": [
+                "以 pgvector v0.8.1 为例，HNSW 的速度与召回取舍通常更好，但内存较大、构建较慢；实际需测量",
+                "IVF 内存占用更低，需要先聚类训练，召回率依赖探查的分区数（nprobe/lists）"
+              ]
+            },
+            {
+              "number": 3,
+              "score": 2,
+              "hits": [
+                1,
+                2
+              ],
+              "missing": [],
+              "evidence": "先从全库取一批近似候选，再做……过滤……结果不足 k……漏掉……更近的文档……迭代扫描能继续寻找。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "查询带严格过滤条件时，近似向量检索可能出现什么问题？",
+              "hit_points": [
+                "先做向量检索再过滤，会导致结果数量不够或召回率下降",
+                "需要支持过滤的检索方式（预过滤、迭代扫描、过滤感知索引等）"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 4,
+              "score": 0,
+              "hits": [
+                1
+              ],
+              "missing": [
+                2,
+                3
+              ],
+              "evidence": "现有 PostgreSQL 能承担索引和查询负载……全部达标，就足够。",
+              "report_gap": "只命中容量/QPS 可承受；未说明需要事务一致性/业务表 join，或团队不想额外运维系统。",
+              "question": "在什么条件下 pgvector 就足够用？",
+              "hit_points": [
+                "规模和 QPS 在单机 PG 能承受的范围内"
+              ],
+              "missing_points": [
+                "需要事务一致性或和业务表 join",
+                "团队不想额外运维一套系统"
+              ]
+            },
+            {
+              "number": 5,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "冻结真实数据快照……距离、k 及权限过滤……精确结果作答案……测召回……p95/p99……持续更新。",
+              "report_gap": "固定 k 下与精确结果比较召回接受为 recall@k 的等效表述；本题无缺口。",
+              "question": "怎样用实验验证你的选择？",
+              "hit_points": [
+                "用自己的真实数据和查询",
+                "以精确（暴力）检索的结果为基准测 recall@k",
+                "测 p95/p99 延迟，并覆盖带过滤的场景和有并发写入的场景"
+              ],
+              "missing_points": []
+            }
+          ],
+          "total_score": 6
+        },
+        {
+          "round": 2,
+          "questions": [
+            {
+              "number": 1,
+              "score": 2,
+              "hits": [
+                1
+              ],
+              "missing": [],
+              "evidence": "候选行数分布……请求速率、延迟……写删及嵌入重建频率……运维预算。",
+              "report_gap": "至少四类需求维度齐全。",
+              "question": "决定这个选型的关键需求维度有哪些？",
+              "hit_points": [
+                "至少说出 4 个：数据量和增长、QPS 和延迟、过滤需求、写入/更新频率、团队运维能力、与现有 PG 数据的事务一致性和 join 需求"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 2,
+              "score": 0,
+              "hits": [],
+              "missing": [
+                1,
+                2
+              ],
+              "evidence": "内存、构建和训练成本，报告未说明；不能从本文完成两类索引的全面取舍。",
+              "report_gap": "缺 HNSW 与 IVF 的内存/构建/训练及搜索分区数的主要取舍。",
+              "question": "HNSW 和 IVF 两类索引的主要取舍是什么？",
+              "hit_points": [],
+              "missing_points": [
+                "以 pgvector v0.8.1 为例，HNSW 的速度与召回取舍通常更好，但内存较大、构建较慢；实际需测量",
+                "IVF 内存占用更低，需要先聚类训练，召回率依赖探查的分区数（nprobe/lists）"
+              ]
+            },
+            {
+              "number": 3,
+              "score": 2,
+              "hits": [
+                1,
+                2
+              ],
+              "missing": [],
+              "evidence": "先取全库 ANN 候选再过滤……返回不足 k 条……漏掉……更近的文档……增加搜索或迭代扫描。",
+              "report_gap": "本题无可据回答确认的缺口。",
+              "question": "查询带严格过滤条件时，近似向量检索可能出现什么问题？",
+              "hit_points": [
+                "先做向量检索再过滤，会导致结果数量不够或召回率下降",
+                "需要支持过滤的检索方式（预过滤、迭代扫描、过滤感知索引等）"
+              ],
+              "missing_points": []
+            },
+            {
+              "number": 4,
+              "score": 0,
+              "hits": [
+                1
+              ],
+              "missing": [
+                2,
+                3
+              ],
+              "evidence": "已有 PostgreSQL 且能以现有资源达到……尾延迟……不挤压事务业务时就可保留。",
+              "report_gap": "未表达需要事务一致性或业务表 join；避免挤压事务不等于需要事务一致性。未表达免额外运维系统。",
+              "question": "在什么条件下 pgvector 就足够用？",
+              "hit_points": [
+                "规模和 QPS 在单机 PG 能承受的范围内"
+              ],
+              "missing_points": [
+                "需要事务一致性或和业务表 join",
+                "团队不想额外运维一套系统"
+              ]
+            },
+            {
+              "number": 5,
+              "score": 2,
+              "hits": [
+                1,
+                2,
+                3
+              ],
+              "missing": [],
+              "evidence": "真实数据快照……k……相同过滤条件下的精确结果……持续更新……召回、p95/p99、请求速率。",
+              "report_gap": "固定 k 的精确基线召回比较为 recall@k 等效表述；本题无缺口。",
+              "question": "怎样用实验验证你的选择？",
+              "hit_points": [
+                "用自己的真实数据和查询",
+                "以精确（暴力）检索的结果为基准测 recall@k",
+                "测 p95/p99 延迟，并覆盖带过滤的场景和有并发写入的场景"
+              ],
+              "missing_points": []
+            }
+          ],
+          "total_score": 6
+        }
+      ],
+      "mean_total_score": 6
+    }
+  },
+  "overall_mean_total_score": 7.083333333333333,
+  "overall_score": 85,
+  "overall_max_score": 120,
+  "below_8": [
+    {
+      "topic": "T1",
+      "mean_total_score": 6
+    },
+    {
+      "topic": "T4",
+      "mean_total_score": 7.5
+    },
+    {
+      "topic": "T5",
+      "mean_total_score": 6
+    },
+    {
+      "topic": "T6",
+      "mean_total_score": 6
+    }
+  ]
+}

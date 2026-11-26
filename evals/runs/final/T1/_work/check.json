@@ -1,0 +1,48 @@
+{
+  "diagnostics": [
+    {
+      "level": "WARN",
+      "code": "C11",
+      "file": "report.md",
+      "line": 1,
+      "message": "开头包含定义句；检查是否先建立了读者问题"
+    },
+    {
+      "level": "WARN",
+      "code": "C12",
+      "file": "report.md",
+      "line": 13,
+      "message": "“词项”第 13 行先出现，第 21 行才加粗"
+    },
+    {
+      "level": "WARN",
+      "code": "C12",
+      "file": "report.md",
+      "line": 17,
+      "message": "“排序”第 17 行先出现，第 112 行才加粗"
+    },
+    {
+      "level": "INFO",
+      "code": "C19",
+      "file": "report.md",
+      "line": 1,
+      "message": "字数 3203/6000｜标签 {'官方': 8, '示意': 5, '推断': 3}｜图 1｜来源 4｜calc 1"
+    }
+  ],
+  "stats": {
+    "chars": 3203,
+    "budget": 6000,
+    "tags": {
+      "官方": 8,
+      "示意": 5,
+      "推断": 3
+    },
+    "figures": 1,
+    "sources": 4,
+    "primary_sources": 4,
+    "calc": 1,
+    "hedge_density": 0.346
+  },
+  "errors": 0,
+  "warnings": 3
+}

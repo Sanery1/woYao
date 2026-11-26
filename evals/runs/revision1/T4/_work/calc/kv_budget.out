@@ -1,0 +1,6 @@
+per_token_KiB=128
+single_8192_GiB=1
+length=8192,concurrent=32,KV_GiB=32
+length=16384,concurrent=32,KV_GiB=64
+length=16384,concurrent=64,KV_GiB=128
+length_and_concurrency_doubled_ratio=4

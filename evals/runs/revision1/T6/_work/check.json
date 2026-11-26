@@ -1,0 +1,28 @@
+{
+  "diagnostics": [
+    {
+      "level": "INFO",
+      "code": "C19",
+      "file": "report.md",
+      "line": 1,
+      "message": "字数 3980/6000｜标签 {'示意': 3, '官方': 9, '推断': 9}｜图 1｜来源 4｜calc 1"
+    }
+  ],
+  "stats": {
+    "chars": 3980,
+    "budget": 6000,
+    "tags": {
+      "示意": 3,
+      "官方": 9,
+      "推断": 9
+    },
+    "figures": 1,
+    "sources": 4,
+    "primary_sources": 4,
+    "calc": 1,
+    "hedge_density": 0.438
+  },
+  "errors": 0,
+  "warnings": 0,
+  "reader_copy": "D:\\Code\\Project\\woYao\\evals\\runs\\revision1\\T6\\_work\\reader-copy.md"
+}

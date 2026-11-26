@@ -1,0 +1,18 @@
+[
+  {
+    "topic": "T1",
+    "score": 6,
+    "chars": 4148,
+    "density": 0.3710116250309176,
+    "errors": 31,
+    "warnings": 2
+  },
+  {
+    "topic": "T5",
+    "score": 9.5,
+    "chars": 3797,
+    "density": 0.630715862503942,
+    "errors": 37,
+    "warnings": 5
+  }
+]

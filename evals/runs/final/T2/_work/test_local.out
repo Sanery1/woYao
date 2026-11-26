@@ -1,0 +1,17 @@
+Execution: python -m unittest -v test_local
+Python: 3.14.0
+Date: 2026-11-25
+test_bad_protocol_stops ... ok
+test_budget ... ok
+test_success_and_wire_history ... ok
+test_tool_errors_are_returned ... ok
+test_two_calls ... ok
+Ran 5 tests in 4.656s
+OK
+
+This is a transcription of the observed command output, not a fresh run.
+
+Final rerun after explicitly clearing API credentials in mock test environment:
+Execution: python -X utf8 -m unittest -v test_local
+Ran 5 tests in 4.622s
+OK

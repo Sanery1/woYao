@@ -1,0 +1,4 @@
+raw_bytes=61440000000,GB=61.44,GiB=57.22
+pg_vector_values_bytes=61600000000,GB=61.60,GiB=57.37
+candidates=100,pass_rate=0.01,expected_pass=1
+target=10,expectation_candidates=1000

@@ -1,0 +1,280 @@
+{
+  "rubric": {
+    "max_score_per_question": 2,
+    "rule": "全部要点正确2分，至少一半要点1分，其余0分；明确报告未说明记0并标报告缺口；允许语义等效，不补写读者未答内容。",
+    "source": "evals/baseline/grading-packet.json",
+    "scope": "按每题回答与其直接引文判分；主线复述不补齐分题回答缺少的要点。"
+  },
+  "topics": {
+    "T1": {
+      "rounds": [
+        {
+          "round": 1,
+          "questions": [
+            {
+              "question": 1,
+              "score": 1,
+              "hits": [
+                "不是10倍，词频收益递减、饱和",
+                "存在上限：引用最终趋近2.2"
+              ],
+              "missing": [
+                "未说明上限由k1控制",
+                "未说明防止堆砌关键词刷分"
+              ],
+              "report_gap": false
+            },
+            {
+              "question": 2,
+              "score": 1,
+              "hits": [
+                "启用长度调整后短文贡献更高",
+                "b控制强度，b=0关闭长度影响；长度因子越大贡献越小"
+              ],
+              "missing": [
+                "未说明文档长度与语料平均长度相比"
+              ],
+              "report_gap": false
+            },
+            {
+              "question": 3,
+              "score": 2,
+              "hits": [
+                "很多篇文档包含该词，文档频率高",
+                "IDF低、区分能力弱"
+              ],
+              "missing": [],
+              "report_gap": false
+            },
+            {
+              "question": 4,
+              "score": 2,
+              "hits": [
+                "未命中候选时调k1、b无效；区分未匹配与匹配但分低",
+                "先用_analyze检查分词及实际token",
+                "再查查询组合条件和候选召回"
+              ],
+              "missing": [],
+              "report_gap": false
+            },
+            {
+              "question": 5,
+              "score": 0,
+              "hits": [],
+              "missing": [
+                "两类分数尺度和分布不同",
+                "按名次融合（如RRF）或先归一化"
+              ],
+              "report_gap": true,
+              "evidence": "明确回答“报告未说明”，称仅见“再合并排序”，没有原因或具体融合方法。"
+            }
+          ],
+          "total_score": 6,
+          "max_score": 10,
+          "mean_question_score": 1.2
+        },
+        {
+          "round": 2,
+          "questions": [
+            {
+              "question": 1,
+              "score": 1,
+              "hits": [
+                "不是10倍，收益递减、饱和",
+                "在k1=1.2时给出上限2.2，表达上限与k1有关"
+              ],
+              "missing": [
+                "未说明防止堆砌关键词刷分"
+              ],
+              "report_gap": false
+            },
+            {
+              "question": 2,
+              "score": 1,
+              "hits": [
+                "开启长度调整后短文贡献更高",
+                "b控制强度，b=0关闭长度影响，提高b加强长度调整"
+              ],
+              "missing": [
+                "未说明文档长度与语料平均长度相比"
+              ],
+              "report_gap": false
+            },
+            {
+              "question": 3,
+              "score": 2,
+              "hits": [
+                "很多篇文档包含该词",
+                "IDF低、区分能力弱"
+              ],
+              "missing": [],
+              "report_gap": false
+            },
+            {
+              "question": 4,
+              "score": 2,
+              "hits": [
+                "未匹配、未进入候选时调k1、b无效",
+                "查实际token和术语边界",
+                "查查询组合条件及候选，区分已匹配但分低"
+              ],
+              "missing": [],
+              "report_gap": false
+            },
+            {
+              "question": 5,
+              "score": 0,
+              "hits": [],
+              "missing": [
+                "两类分数尺度和分布不同",
+                "按名次融合（如RRF）或先归一化"
+              ],
+              "report_gap": true,
+              "evidence": "明确回答“报告未说明”，称没有不能相加的原因和具体融合方法。"
+            }
+          ],
+          "total_score": 6,
+          "max_score": 10,
+          "mean_question_score": 1.2
+        }
+      ],
+      "mean_total_score": 6,
+      "max_total_score": 10,
+      "mean_question_score": 1.2
+    },
+    "T5": {
+      "rounds": [
+        {
+          "round": 1,
+          "questions": [
+            {
+              "question": 1,
+              "score": 2,
+              "hits": [
+                "App安装包和网页代码交给用户运行，检查副本可找出密码",
+                "共享秘密无法保密，等效表达公开客户端性质"
+              ],
+              "missing": [],
+              "report_gap": false
+            },
+            {
+              "question": 2,
+              "score": 2,
+              "hits": [
+                "恶意App可能抢先用授权码换访问令牌",
+                "获得用户本只想授予相册App的读取能力"
+              ],
+              "missing": [],
+              "report_gap": false
+            },
+            {
+              "question": 3,
+              "score": 2,
+              "hits": [
+                "授权前生成并保留随机V，仅先发送由V算出的C",
+                "兑换时提交授权码和V，由服务器重算比较",
+                "攻击者只有授权码，没有正确V"
+              ],
+              "missing": [],
+              "report_gap": false
+            },
+            {
+              "question": 4,
+              "score": 2,
+              "hits": [
+                "S256哈希再编码，看到C难以反推出随机V",
+                "plain的C等于V，看到授权请求即得到秘密"
+              ],
+              "missing": [],
+              "report_gap": false
+            },
+            {
+              "question": 5,
+              "score": 2,
+              "hits": [
+                "引用“PKCE的兑换检查已经结束”限定保护阶段",
+                "兑换后令牌被偷和滥用不受保护",
+                "钓鱼页面及受控运行环境不受保护"
+              ],
+              "missing": [],
+              "report_gap": false
+            }
+          ],
+          "total_score": 10,
+          "max_score": 10,
+          "mean_question_score": 2
+        },
+        {
+          "round": 2,
+          "questions": [
+            {
+              "question": 1,
+              "score": 2,
+              "hits": [
+                "App副本和网页代码交给用户运行，可检查找出共享密码",
+                "不能保密、混淆仅增成本，等效表达公开客户端性质"
+              ],
+              "missing": [],
+              "report_gap": false
+            },
+            {
+              "question": 2,
+              "score": 2,
+              "hits": [
+                "恶意App可能抢先兑换访问令牌",
+                "获取原本授予相册App的读取照片能力"
+              ],
+              "missing": [],
+              "report_gap": false
+            },
+            {
+              "question": 3,
+              "score": 2,
+              "hits": [
+                "每次生成并保存随机V，先将派生C交服务器",
+                "兑换时提交授权码与V，服务器计算比较",
+                "仅有授权码没有V不能通过校验"
+              ],
+              "missing": [],
+              "report_gap": false
+            },
+            {
+              "question": 4,
+              "score": 2,
+              "hits": [
+                "S256哈希和编码，看到C难以反推出随机V",
+                "plain的C就是V，看到请求等于得到秘密"
+              ],
+              "missing": [],
+              "report_gap": false
+            },
+            {
+              "question": 5,
+              "score": 1,
+              "hits": [
+                "不能保护已发出的访问令牌免于后续盗用",
+                "钓鱼页面和受控App运行环境不受保护"
+              ],
+              "missing": [
+                "未明确限定只保护“用授权码换token”这一步"
+              ],
+              "report_gap": false
+            }
+          ],
+          "total_score": 9,
+          "max_score": 10,
+          "mean_question_score": 1.8
+        }
+      ],
+      "mean_total_score": 9.5,
+      "max_total_score": 10,
+      "mean_question_score": 1.9
+    }
+  },
+  "overall": {
+    "total_score": 31,
+    "max_score": 40,
+    "mean_round_total_score": 7.75,
+    "mean_question_score": 1.55
+  }
+}

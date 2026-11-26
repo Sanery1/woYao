@@ -1,0 +1,22 @@
+N=6 avgdl=8.000000 df=[5, 2] idf=[0.241162, 1.029619]
+D1 cache=0.303175 invalid=1.294379 total=1.597554
+D2 cache=0.378969 invalid=0.000000 total=0.378969
+D3 cache=0.312092 invalid=1.104957 total=1.417049
+D4 cache=0.303175 invalid=0.000000 total=0.303175
+D5 cache=0.241162 invalid=0.000000 total=0.241162
+D6 cache=0.000000 invalid=0.000000 total=0.000000
+rank=D1>D3>D2>D4>D5>D6
+tf=1 length=8 factor=1.000000
+tf=2 length=8 factor=1.375000
+tf=4 length=8 factor=1.692308
+tf=8 length=8 factor=1.913043
+tf=3 length=4 factor=1.760000
+tf=3 length=8 factor=1.571429
+tf=3 length=16 factor=1.294118
+k1=0 factor(tf1)=1.000000 factor(tf4)=1.000000
+k1=0.6 factor(tf1)=1.000000 factor(tf4)=1.391304
+k1=1.2 factor(tf1)=1.000000 factor(tf4)=1.692308
+k1=2.0 factor(tf1)=1.000000 factor(tf4)=2.000000
+b=0 tf=3 short=1.571429 long=1.571429
+b=0.75 tf=3 short=1.760000 long=1.294118
+b=1 tf=3 short=1.833333 long=1.222222

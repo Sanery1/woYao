@@ -1,0 +1,7 @@
+# Preserve evaluation evidence bytes and the hashes recorded by readers.
+evals/** -text whitespace=cr-at-eol
+# Masked answer spans intentionally contain spaces; recorded diffs include them.
+evals/**/*reader-copy*.md whitespace=cr-at-eol,-blank-at-eol
+evals/**/*.diff whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof
+# Keep the independent graders' original output, including its final blank line.
+evals/**/grades.md whitespace=cr-at-eol,-blank-at-eof

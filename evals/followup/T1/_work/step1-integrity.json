@@ -1,0 +1,10 @@
+{
+  "before_sha256": "f40e59412eb416880e7ca8175a0aa0339fdadee633b2af50ae1e62334b399479",
+  "after_sha256": "342335dfc281ec4dd586a2c51d682d0c2ac5d9972e6f2e697ed600d11f7e94ac",
+  "prefix_identical": true,
+  "suffix_identical": true,
+  "prefix_sha256": "08d6ff41346dede9090fd5d2f91ef58b782c338769d3abaacedd740b70744e91",
+  "suffix_sha256": "5e9aa647162ac3f272cdc7eb063d0148ffb1cdc5278285e86f06632ecf77ee42",
+  "target": "section 3 only",
+  "retest_goal": "G3 only; original question and answer requirements unchanged"
+}

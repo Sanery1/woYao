@@ -1,0 +1,27 @@
+{
+  "source_report_sha256": "f40e59412eb416880e7ca8175a0aa0339fdadee633b2af50ae1e62334b399479",
+  "source_report_still_identical_to_initial_snapshot": true,
+  "step1_section3_only": {
+    "prefix_identical": true,
+    "suffix_identical": true,
+    "sha256_after": "342335dfc281ec4dd586a2c51d682d0c2ac5d9972e6f2e697ed600d11f7e94ac"
+  },
+  "step2_sha256_after": "f265f5c9d23aa165360e0b9751a54ab11e04cdd9288ef51f09f08e14ee446a00",
+  "step2_original_map_prefix_and_G1_G5_unchanged": true,
+  "step2_extension_before_return": true,
+  "step3_original_report_identical_to_v3": true,
+  "step3_brief_identical_to_source": true,
+  "step3_map_contains_only_step2_append_after_source_prefix": true,
+  "step3_original_hashes_before_variant_check": {
+    "report.md": "f265f5c9d23aa165360e0b9751a54ab11e04cdd9288ef51f09f08e14ee446a00",
+    "_work\\brief.md": "161e895c243c86cc4b9b6769c6e048fe3b869517738a6bde8e6c6188a973e264",
+    "_work\\map.md": "ff2571f013308f84a151f1d7a50c79f457daa3d21f1a81a9ec3cfb26d56d4fb6"
+  },
+  "step3_original_hashes_after_variant_check": {
+    "report.md": "f265f5c9d23aa165360e0b9751a54ab11e04cdd9288ef51f09f08e14ee446a00",
+    "_work\\brief.md": "161e895c243c86cc4b9b6769c6e048fe3b869517738a6bde8e6c6188a973e264",
+    "_work\\map.md": "ff2571f013308f84a151f1d7a50c79f457daa3d21f1a81a9ec3cfb26d56d4fb6"
+  },
+  "variant_sha256": "a8fc2541d38e37f4b61d52fe420cc6895c43eccb3a1e556ed8ebf6ba3ece0abe",
+  "note": "Map source-prefix verification is a final content comparison; no pre-creation map snapshot was captured. The variant-check pre/post hashes are directly observed."
+}

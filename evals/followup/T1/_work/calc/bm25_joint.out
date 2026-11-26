@@ -1,0 +1,4 @@
+short: tf=1, length=50, avgdl=150, ratio=0.333333, L=0.500000, effective_tf=2.000000, score=0.490428
+ordinary: tf=3, length=150, avgdl=150, ratio=1.000000, L=1.000000, effective_tf=3.000000, score=0.560489
+long: tf=3, length=300, avgdl=150, ratio=2.000000, L=1.750000, effective_tf=1.714286, score=0.461579
+long_plus_3_matches: tf=6, length=303, avgdl=150.75, ratio=2.009950, L=1.757463, effective_tf=3.414013, score=0.580606

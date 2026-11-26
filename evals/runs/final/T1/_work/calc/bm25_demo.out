@@ -1,0 +1,10 @@
+IDF(df=3,N=4)=0.356675
+IDF(df=4,N=4)=0.105361
+short: tf=1, length=50, contribution=0.490428
+repeat: tf=3, length=150, contribution=0.560489
+long: tf=3, length=300, contribution=0.461579
+fixed_length: tf=1, factor=1.000000
+fixed_length: tf=2, factor=1.375000
+fixed_length: tf=10, factor=1.964286
+fixed_length: tf=100, factor=2.173913
+fixed_length_upper_bound=2.200000
